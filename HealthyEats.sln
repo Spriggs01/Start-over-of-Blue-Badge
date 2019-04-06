@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.WebMVC", "HealthyEats.WebMVC\HealthyEats.WebMVC.csproj", "{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBA57002-9FD1-435F-B1E7-0F1D0230EB0A}
+	EndGlobalSection
+EndGlobal
