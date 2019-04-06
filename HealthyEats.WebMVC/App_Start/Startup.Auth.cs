@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using HealthyEats.WebMVC.Models;
+using HealthyEats.WebMVC.Data;
 
 namespace HealthyEats.WebMVC
 {

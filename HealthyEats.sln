@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.WebMVC", "HealthyEats.WebMVC\HealthyEats.WebMVC.csproj", "{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.Services", "HealthyEats.Services\HealthyEats.Services.csproj", "{61AAD51A-4E67-4FC4-BEE0-4C06217BCE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealtyEats.Models", "HealtyEats.Models\HealtyEats.Models.csproj", "{6DE63CC8-0135-4227-9AE6-8EC9DE7ABC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.Contracts", "HealthyEats.Contracts\HealthyEats.Contracts.csproj", "{5D8BB87A-DC2A-4EF3-9FFA-1ECE1C5815FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.Data", "HealthyEats.Data\HealthyEats.Data.csproj", "{74230B13-5682-46B3-965D-696741A1F476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyEats.Tests", "HealthyEats.Tests\HealthyEats.Tests.csproj", "{95CB70AF-6009-45FD-8F11-CE087AE9D59D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37AFDA58-3154-40EF-BA5E-FC94DA9F9451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AAD51A-4E67-4FC4-BEE0-4C06217BCE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AAD51A-4E67-4FC4-BEE0-4C06217BCE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AAD51A-4E67-4FC4-BEE0-4C06217BCE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AAD51A-4E67-4FC4-BEE0-4C06217BCE47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE63CC8-0135-4227-9AE6-8EC9DE7ABC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE63CC8-0135-4227-9AE6-8EC9DE7ABC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE63CC8-0135-4227-9AE6-8EC9DE7ABC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE63CC8-0135-4227-9AE6-8EC9DE7ABC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8BB87A-DC2A-4EF3-9FFA-1ECE1C5815FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8BB87A-DC2A-4EF3-9FFA-1ECE1C5815FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8BB87A-DC2A-4EF3-9FFA-1ECE1C5815FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8BB87A-DC2A-4EF3-9FFA-1ECE1C5815FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74230B13-5682-46B3-965D-696741A1F476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74230B13-5682-46B3-965D-696741A1F476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74230B13-5682-46B3-965D-696741A1F476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74230B13-5682-46B3-965D-696741A1F476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CB70AF-6009-45FD-8F11-CE087AE9D59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CB70AF-6009-45FD-8F11-CE087AE9D59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CB70AF-6009-45FD-8F11-CE087AE9D59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CB70AF-6009-45FD-8F11-CE087AE9D59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

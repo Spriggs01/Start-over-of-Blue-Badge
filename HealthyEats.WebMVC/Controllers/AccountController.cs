@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HealthyEats.WebMVC.Models;
+using HealthyEats.WebMVC.Data;
 
 namespace HealthyEats.WebMVC.Controllers
 {
