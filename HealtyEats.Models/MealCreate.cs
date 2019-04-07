@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealtyEats.WebMVC.Models
+namespace HealtyEats.Models
 {
-    public class MealListItem
+    public class MealCreate
     {
         public int RecipeID { get; set; }
         public int  MealID { get; set; }
-        public string MealDescription { get; set; }
 
-        public override string ToString() => MealDescription;
-        
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

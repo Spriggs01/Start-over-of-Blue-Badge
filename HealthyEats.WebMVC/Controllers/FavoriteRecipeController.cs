@@ -11,6 +11,7 @@ using HealtyEats.Models;
 
 namespace HealthyEats.WebMVC.Controllers
 {
+    [Authorize]
     public class FavoriteRecipeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

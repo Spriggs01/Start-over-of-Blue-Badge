@@ -11,7 +11,7 @@ using HealtyEats.WebMVC.Models;
 
 namespace HealthyEats.WebMVC.Controllers
 {
-    [Authorize]
+    
     public class MealController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

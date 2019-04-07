@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthyEats.WebMVC.Data
+namespace HealtyEats.Models
 {
-   public class RecipeType
+   public class RecipeTypeCreate
     {
-        [Key]
+
         public int RecipeTypeID { get; set; }
 
         [Required]
@@ -18,7 +18,9 @@ namespace HealthyEats.WebMVC.Data
         [Required]
         public string Dietary { get; set; }
 
-
-        public string Image { get; set; }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

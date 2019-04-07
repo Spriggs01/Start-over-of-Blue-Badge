@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthyEats.WebMVC.Data
+namespace HealtyEats.Models
 {
-    public class FavoriteRecipe
+    public class FavoriteRecipeCreate
     {
-       
+        
         [Required]
-        public Guid UserID { get; set; }
-
-        [Key]
         public int RecipeID { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

@@ -5,24 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealthyEats.Data
+namespace HealtyEats.Models
 {
-    public class Recipe
+  public  class RecipeCreate
     {
-        [Key]
-        public int RecipeID { get; set; }
-
         [Required]
         public string RecipeTitle { get; set; }
-
-        
         public string Link { get; set; }
-
         public int Calories { get; set; }
+        public string RecipeType { get; set; }
+        public string Image { get; set; }
 
-        [Required]
-        public int RecipeTypeID { get; set; }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
-        
     }
 }

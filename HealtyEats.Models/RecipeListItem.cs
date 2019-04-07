@@ -12,5 +12,8 @@ namespace HealtyEats.Models
         public int Calories { get; set; }
         public string Link { get; set; }
         public string Image { get; set; }
+
+        public override string ToString() => RecipeTitle;
+        
     }
 }

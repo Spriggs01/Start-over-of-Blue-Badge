@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavoriteRecipeCreate.cs" />
     <Compile Include="FavoriteRecipeListItem.cs" />
+    <Compile Include="MealCreate.cs" />
     <Compile Include="MealListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeCreate.cs" />
     <Compile Include="RecipeListItem.cs" />
+    <Compile Include="RecipeTypeCreate.cs" />
     <Compile Include="RecipeTypeListItem.cs" />
   </ItemGroup>
   <ItemGroup>

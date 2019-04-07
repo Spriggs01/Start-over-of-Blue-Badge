@@ -23,9 +23,7 @@
         <div class="form-horizontal">
             <h4>FavoriteRecipe</h4>
             <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.FavoriteRecipeID)
-    
+           
             <div class="form-group">
                 @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">

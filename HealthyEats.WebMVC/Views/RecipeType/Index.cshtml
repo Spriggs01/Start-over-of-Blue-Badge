@@ -23,6 +23,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Dietary)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
             <th></th>
         </tr>
     
@@ -35,9 +38,12 @@
                 @Html.DisplayFor(modelItem => item.Dietary)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RecipeTypeID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RecipeTypeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RecipeTypeID })
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RecipeTypeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RecipeTypeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RecipeTypeID })
             </td>
         </tr>
     }
