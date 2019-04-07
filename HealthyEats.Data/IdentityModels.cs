@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using HealthyEats.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -59,13 +60,12 @@ namespace HealthyEats.WebMVC.Data
 
         public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
         {
-            public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-            {
+           
                 public IdentityUserRoleConfiguration()
                 {
                     HasKey(iur => iur.RoleId);
                 }
-            }
+            
         }
 
     }

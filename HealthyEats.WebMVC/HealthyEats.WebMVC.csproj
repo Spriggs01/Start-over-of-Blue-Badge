@@ -174,8 +174,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FavoriteRecipeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
+    <Compile Include="Controllers\RecipeController.cs" />
+    <Compile Include="Controllers\RecipeTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +244,26 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Meal\Create.cshtml" />
+    <Content Include="Views\Meal\Delete.cshtml" />
+    <Content Include="Views\Meal\Details.cshtml" />
+    <Content Include="Views\Meal\Edit.cshtml" />
+    <Content Include="Views\Meal\Index.cshtml" />
+    <Content Include="Views\Recipe\Create.cshtml" />
+    <Content Include="Views\Recipe\Delete.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Recipe\Edit.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\RecipeType\Create.cshtml" />
+    <Content Include="Views\RecipeType\Delete.cshtml" />
+    <Content Include="Views\RecipeType\Details.cshtml" />
+    <Content Include="Views\RecipeType\Edit.cshtml" />
+    <Content Include="Views\RecipeType\Index.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Create.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Delete.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Details.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Edit.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
