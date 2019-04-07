@@ -15,6 +15,9 @@ namespace HealtyEats.Models
 
         public virtual ICollection<Recipe> Recipes { get; set; }
 
-
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
