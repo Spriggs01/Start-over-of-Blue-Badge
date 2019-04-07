@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthyEats.WebMVC.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace HealthyEats.Data
 {
     public class Recipe
     {
+        public Recipe()
+        {
+            this.Meals = new HashSet<Meal>();
+            this.FavoriteRecipes = new HashSet<FavoriteRecipe>();
+        }
+
         [Key]
         public int RecipeID { get; set; }
 
@@ -20,9 +27,19 @@ namespace HealthyEats.Data
 
         public int Calories { get; set; }
 
+        public string TypeName { get; set; }
+
+        public string Dietary { get; set; }
+
+        public string Image { get; set; }
+
         [Required]
         public int RecipeTypeID { get; set; }
 
-        
+        public virtual ICollection<Meal> Meals { get; set; }
+
+        public virtual ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
+
+
     }
 }

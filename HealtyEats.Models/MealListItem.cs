@@ -1,18 +1,20 @@
-﻿using System;
+﻿using HealthyEats.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealtyEats.WebMVC.Models
+namespace HealtyEats.Models
 {
     public class MealListItem
     {
-        public int RecipeID { get; set; }
-        public int  MealID { get; set; }
+        public int MealID { get; set; }
+
         public string MealDescription { get; set; }
 
-        public override string ToString() => MealDescription;
-        
+        public virtual ICollection<Recipe> Recipes { get; set; }
+
+
     }
 }

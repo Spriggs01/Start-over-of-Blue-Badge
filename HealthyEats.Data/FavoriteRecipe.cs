@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthyEats.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,11 +10,24 @@ namespace HealthyEats.WebMVC.Data
 {
     public class FavoriteRecipe
     {
-       
+        public FavoriteRecipe()
+        {
+            this.Recipes = new HashSet<Recipe>();
+        }
+
+
+
+        [Key]
+        public int FavoriteRecipeID { get; set; }
+
+        public string FavoriteList { get; set; }
+
+
         [Required]
         public Guid UserID { get; set; }
 
-        [Key]
-        public int RecipeID { get; set; }
+
+        public virtual ICollection<Recipe> Recipes { get; set; }
+
     }
 }

@@ -34,7 +34,6 @@ namespace HealthyEats.WebMVC.Data
         }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<RecipeType> RecipeTypes { get; set; }
         public DbSet<FavoriteRecipe> FavoriteRecipes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -47,6 +46,26 @@ namespace HealthyEats.WebMVC.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<FavoriteRecipe>()
+                .HasMany<Recipe>(s => s.Recipes)
+                .WithMany(c => c.FavoriteRecipes)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("FavoriteRecipeRefId");
+                    cs.MapRightKey("RecipeRefId");
+                    cs.ToTable("RecipeFavoriteRecipe");
+                });
+
+            modelBuilder.Entity<Meal>()
+                .HasMany<Recipe>(s => s.Recipes)
+                .WithMany(c => c.Meals)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("MealRefId");
+                    cs.MapRightKey("RecipeRefId");
+                    cs.ToTable("MealRecipe");
+                });
         }
 
 
@@ -60,12 +79,12 @@ namespace HealthyEats.WebMVC.Data
 
         public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
         {
-           
-                public IdentityUserRoleConfiguration()
-                {
-                    HasKey(iur => iur.RoleId);
-                }
-            
+
+            public IdentityUserRoleConfiguration()
+            {
+                HasKey(iur => iur.RoleId);
+            }
+
         }
 
     }
