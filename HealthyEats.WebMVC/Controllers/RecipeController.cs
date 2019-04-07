@@ -18,6 +18,8 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Recipe
         public ActionResult Index()
         {
+            
+
             return View(db.Recipes.ToList());
         }
 

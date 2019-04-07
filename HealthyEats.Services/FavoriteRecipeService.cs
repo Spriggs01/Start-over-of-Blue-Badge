@@ -12,11 +12,11 @@ namespace HealthyEats.Services
     public class FavoriteRecipeService
     {
 
-        private readonly int _favoriteRecipeId; 
+        private readonly Guid  _userId; 
 
-        public FavoriteRecipeService(int favoriteRecipeId)
+        public FavoriteRecipeService(Guid userId)
         {
-            _favoriteRecipeId = favoriteRecipeId;
+            _userId = userId;
         }
 
         public bool CreateFavoriteRecipe(FavoriteRecipeCreate model)
@@ -24,7 +24,7 @@ namespace HealthyEats.Services
             var entity =
                 new FavoriteRecipe()
                 {
-                    FavoriteRecipeID = _favoriteRecipeId,
+                    UserID = _userId,
                     FavoriteList = model.FavoriteList,
                     Recipes = model.Recipes
                 };
@@ -36,14 +36,14 @@ namespace HealthyEats.Services
             }
         }
 
-        public IEnumerable<FavoriteRecipeListItem> GetFavoriteRecipe()
+        public IEnumerable<FavoriteRecipeListItem> GetFavoriteRecipes()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .FavoriteRecipes
-                    .Where(e => e.FavoriteRecipeID == _favoriteRecipeId)
+                    .Where(e => e.UserID == _userId)
                     .Select(
                         e =>
                         new FavoriteRecipeListItem
