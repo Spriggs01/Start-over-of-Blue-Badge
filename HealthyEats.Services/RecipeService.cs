@@ -65,5 +65,30 @@ namespace HealthyEats.Services
             }
         }
 
+        public RecipeDetail GetRecipeByID(int recipeID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Recipes
+                    .Single(e => e.RecipeID == recipeID && e.UserID == _userId);
+                return
+                    new RecipeDetail
+                    {
+                        RecipeID = entity.RecipeID,
+                        RecipeTitle = entity.RecipeTitle,
+                        Link = entity.Link,
+                        TypeName = entity.TypeName,
+                        Calories = entity.Calories,
+                        Dietary = entity.Dietary,
+
+
+                    };
+            }
+
+        }
     }
+
 }
+

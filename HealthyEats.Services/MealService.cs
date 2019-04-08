@@ -56,5 +56,24 @@ namespace HealthyEats.Services
                 return query.ToArray();
             }
         }
+
+        public MealDetail GetMealByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Meals
+                    .Single(e => e.MealID == id && e.UserID == _userId);
+                return
+                    new MealDetail
+                    {
+                        MealID = entity.MealID,
+                        MealName = entity.MealName,
+                        Recipes = entity.Recipes
+
+                    };
+            }
+        }
     }
 }

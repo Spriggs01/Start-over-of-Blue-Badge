@@ -57,5 +57,23 @@ namespace HealthyEats.Services
             }
         }
 
+        public FavoriteRecipeDetail GetFavoriteRecipeByID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .FavoriteRecipes
+                    .Single(e => e.FavoriteRecipeID == id && e.UserID == _userId);
+                return
+                    new FavoriteRecipeDetail
+                    {
+                        FavoriteRecipeID = entity.FavoriteRecipeID,
+                        FavoriteList = entity.FavoriteList,
+                        RecipeID = entity.RecipeID,
+                        Recipes = entity.Recipes
+                    };
+            }
+        }
     }
 }
