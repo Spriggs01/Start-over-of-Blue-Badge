@@ -52,9 +52,9 @@ namespace HealthyEats.WebMVC.Data
                 .WithMany(c => c.FavoriteRecipes)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey("FavoriteRecipeRefId");
-                    cs.MapRightKey("RecipeRefId");
-                    cs.ToTable("RecipeFavoriteRecipe");
+                    cs.MapLeftKey("FavoriteRecipe_FavoriteRecipeID");
+                    cs.MapRightKey("Recipe_RecipeID");
+                    cs.ToTable("FavoriteRecipes");
                 });
 
             modelBuilder.Entity<Meal>()
@@ -62,10 +62,12 @@ namespace HealthyEats.WebMVC.Data
                 .WithMany(c => c.Meals)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey("MealRefId");
-                    cs.MapRightKey("RecipeRefId");
+                    cs.MapLeftKey("Meal_MealID");
+                    cs.MapRightKey("Recipe_RecipeID");
                     cs.ToTable("MealRecipe");
                 });
+
+           
         }
 
 

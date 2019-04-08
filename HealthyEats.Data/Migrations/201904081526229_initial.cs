@@ -3,7 +3,7 @@ namespace HealthyEats.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -12,10 +12,26 @@ namespace HealthyEats.Data.Migrations
                 c => new
                     {
                         FavoriteRecipeID = c.Int(nullable: false, identity: true),
-                        UserID = c.Guid(nullable: false),
+                        FavoriteList = c.String(),
                         RecipeID = c.Int(nullable: false),
+                        UserID = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.FavoriteRecipeID);
+            
+            CreateTable(
+                "dbo.Recipe",
+                c => new
+                    {
+                        RecipeID = c.Int(nullable: false, identity: true),
+                        UserID = c.Guid(nullable: false),
+                        RecipeTitle = c.String(nullable: false),
+                        Link = c.String(),
+                        Calories = c.Int(nullable: false),
+                        TypeName = c.String(),
+                        Dietary = c.String(),
+                        RecipeTypeID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RecipeID);
             
             CreateTable(
                 "dbo.Meal",
@@ -23,33 +39,10 @@ namespace HealthyEats.Data.Migrations
                     {
                         MealID = c.Int(nullable: false, identity: true),
                         UserID = c.Guid(nullable: false),
-                        RecipeID = c.Int(nullable: false),
+                        MealName = c.String(),
                         MealDescription = c.String(),
                     })
                 .PrimaryKey(t => t.MealID);
-            
-            CreateTable(
-                "dbo.Recipe",
-                c => new
-                    {
-                        RecipeID = c.Int(nullable: false, identity: true),
-                        RecipeTitle = c.String(nullable: false),
-                        Link = c.String(nullable: false),
-                        Calories = c.Int(nullable: false),
-                        RecipeTypeID = c.Int(nullable: false),
-                        Image = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.RecipeID);
-            
-            CreateTable(
-                "dbo.RecipeType",
-                c => new
-                    {
-                        RecipeTypeID = c.Int(nullable: false, identity: true),
-                        TypeName = c.String(nullable: false),
-                        Dietary = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.RecipeTypeID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -121,6 +114,32 @@ namespace HealthyEats.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
             
+            CreateTable(
+                "dbo.MealRecipe",
+                c => new
+                    {
+                        Meal_MealID = c.Int(nullable: false),
+                        Recipe_RecipeID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Meal_MealID, t.Recipe_RecipeID })
+                .ForeignKey("dbo.Meal", t => t.Meal_MealID, cascadeDelete: true)
+                .ForeignKey("dbo.Recipe", t => t.Recipe_RecipeID, cascadeDelete: true)
+                .Index(t => t.Meal_MealID)
+                .Index(t => t.Recipe_RecipeID);
+            
+            CreateTable(
+                "dbo.FavoriteRecipes",
+                c => new
+                    {
+                        FavoriteRecipe_FavoriteRecipeID = c.Int(nullable: false),
+                        Recipe_RecipeID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.FavoriteRecipe_FavoriteRecipeID, t.Recipe_RecipeID })
+                .ForeignKey("dbo.FavoriteRecipe", t => t.FavoriteRecipe_FavoriteRecipeID, cascadeDelete: true)
+                .ForeignKey("dbo.Recipe", t => t.Recipe_RecipeID, cascadeDelete: true)
+                .Index(t => t.FavoriteRecipe_FavoriteRecipeID)
+                .Index(t => t.Recipe_RecipeID);
+            
         }
         
         public override void Down()
@@ -129,18 +148,27 @@ namespace HealthyEats.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.FavoriteRecipes", "Recipe_RecipeID", "dbo.Recipe");
+            DropForeignKey("dbo.FavoriteRecipes", "FavoriteRecipe_FavoriteRecipeID", "dbo.FavoriteRecipe");
+            DropForeignKey("dbo.MealRecipe", "Recipe_RecipeID", "dbo.Recipe");
+            DropForeignKey("dbo.MealRecipe", "Meal_MealID", "dbo.Meal");
+            DropIndex("dbo.FavoriteRecipes", new[] { "Recipe_RecipeID" });
+            DropIndex("dbo.FavoriteRecipes", new[] { "FavoriteRecipe_FavoriteRecipeID" });
+            DropIndex("dbo.MealRecipe", new[] { "Recipe_RecipeID" });
+            DropIndex("dbo.MealRecipe", new[] { "Meal_MealID" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropTable("dbo.FavoriteRecipes");
+            DropTable("dbo.MealRecipe");
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.RecipeType");
-            DropTable("dbo.Recipe");
             DropTable("dbo.Meal");
+            DropTable("dbo.Recipe");
             DropTable("dbo.FavoriteRecipe");
         }
     }

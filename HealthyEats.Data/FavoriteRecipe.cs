@@ -22,6 +22,8 @@ namespace HealthyEats.WebMVC.Data
 
         public string FavoriteList { get; set; }
 
+        public int RecipeID { get; set; }
+
 
         [Required]
         public Guid UserID { get; set; }

@@ -7,7 +7,10 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HealthyEats.Data;
+using HealthyEats.Services;
 using HealthyEats.WebMVC.Data;
+using HealtyEats.Models;
+using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
 {
@@ -18,7 +21,9 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Recipe
         public ActionResult Index()
         {
-            
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new RecipeService(userID);
+            var model = service.GetRecipe();
 
             return View(db.Recipes.ToList());
         }
@@ -39,10 +44,22 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Recipe/Create
-        public ActionResult Create()
+        public ActionResult Create(RecipeCreate model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new RecipeService(userID);
+
+            service.CreateRecipe(model);
+
+            return RedirectToAction("Index");
         }
+        
+        
 
         // POST: Recipe/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

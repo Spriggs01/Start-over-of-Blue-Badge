@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using HealthyEats.Services;
 using HealthyEats.WebMVC.Data;
+using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
 {
@@ -17,6 +19,9 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal
         public ActionResult Index()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MealService(userId);
+            var model = service.GetMeals();
             return View(db.Meals.ToList());
         }
 
@@ -46,7 +51,7 @@ namespace HealthyEats.WebMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MealID,UserID,MealDescription")] Meal meal)
+        public ActionResult Create([Bind(Include = "MealID,UserID,MealName,MealDescription")] Meal meal)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +83,7 @@ namespace HealthyEats.WebMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MealID,UserID,MealDescription")] Meal meal)
+        public ActionResult Edit([Bind(Include = "MealID,UserID,MealName,MealDescription")] Meal meal)
         {
             if (ModelState.IsValid)
             {

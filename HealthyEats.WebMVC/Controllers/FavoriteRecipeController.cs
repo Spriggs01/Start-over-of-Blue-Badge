@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using HealthyEats.Services;
 using HealthyEats.WebMVC.Data;
+using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
 {
@@ -17,6 +19,9 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: FavoriteRecipe
         public ActionResult Index()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteRecipeService(userId);
+            var model = service.GetFavoriteRecipes();
             return View(db.FavoriteRecipes.ToList());
         }
 

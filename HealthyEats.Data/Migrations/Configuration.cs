@@ -10,7 +10,6 @@ namespace HealthyEats.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "HealthyEats.WebMVC.Data.ApplicationDbContext";
         }
 
         protected override void Seed(HealthyEats.WebMVC.Data.ApplicationDbContext context)

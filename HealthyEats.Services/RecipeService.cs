@@ -11,18 +11,17 @@ namespace HealthyEats.Services
 {
     public class RecipeService
     {
-        public readonly int _recipeID;
-
-        public RecipeService(int recipeId)
+        private readonly Guid _userId;
+        public RecipeService(Guid userId)
         {
-            _recipeID = recipeId;
+            _userId = userId;
         }
         public bool CreateRecipe(RecipeCreate model)
         {
             var entity =
                 new Recipe()
                 {
-                    RecipeID = _recipeID,
+                    UserID = _userId,
                     RecipeTitle = model.RecipeTitle,
                     Link = model.Link,
                     Calories = model.Calories,
@@ -47,7 +46,7 @@ namespace HealthyEats.Services
                 var query =
                     ctx
                     .Recipes
-                    .Where(e => e.RecipeID == _recipeID)
+                    .Where(e => e.UserID == _userId)
                     .Select(
                         e =>
                         new RecipeListItem

@@ -24,7 +24,8 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
-                    Recipes = model.Recipes
+                    Recipes = model.Recipes,
+                    
                 };
 
             using (var ctx = new ApplicationDbContext())

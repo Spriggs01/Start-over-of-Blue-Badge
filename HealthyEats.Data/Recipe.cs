@@ -15,6 +15,8 @@ namespace HealthyEats.Data
             this.Meals = new HashSet<Meal>();
             this.FavoriteRecipes = new HashSet<FavoriteRecipe>();
         }
+        [Required]
+        public Guid UserID { get; set; }
 
         [Key]
         public int RecipeID { get; set; }
@@ -31,7 +33,7 @@ namespace HealthyEats.Data
 
         public string Dietary { get; set; }
 
-        public string Image { get; set; }
+       
 
         [Required]
         public int RecipeTypeID { get; set; }
