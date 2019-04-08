@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HealthyEats.Services;
 using HealthyEats.WebMVC.Data;
+using HealtyEats.Models;
 using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
@@ -41,10 +42,33 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Meal/Create
-        public ActionResult Create()
+        public ActionResult Create(MealCreate model)
         {
-            return View();
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateMealService();
+
+            if (service.CreateMeal(model))
+            {
+                TempData["SaveResult"] = "WOOHOO! Meal Tracking is AWESOME!";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "BOOH! Meal was not created. Such a sad moment.");
+            {
+                return View(model);
+            }
+
+
         }
+
+        private MealService CreateMealService()
+        {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new MealService(userID);
+            return service;
+        }
+
 
         // POST: Meal/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

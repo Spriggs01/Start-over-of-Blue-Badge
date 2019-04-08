@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HealthyEats.Services;
 using HealthyEats.WebMVC.Data;
+using HealtyEats.Models;
 using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
@@ -41,10 +42,36 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: FavoriteRecipe/Create
-        public ActionResult Create()
+        public ActionResult Create(FavoriteRecipeCreate model)
         {
-            return View();
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateFavoriteRecipeService();
+
+            if (service.CreateFavoriteRecipe(model))
+            {
+                TempData["SaveResult"] = "YAY to Favorite Recipes!!";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Such a sad moment! No Favorite Recipe Created");
+
+            return View(model);
         }
+        
+           
+
+        
+        
+        
+
+        private FavoriteRecipeService CreateFavoriteRecipeService()
+        {
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteRecipeService(userID);
+            return service;
+        }
+
 
         // POST: FavoriteRecipe/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

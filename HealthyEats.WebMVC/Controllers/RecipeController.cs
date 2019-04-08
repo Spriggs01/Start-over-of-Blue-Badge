@@ -46,20 +46,33 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Recipe/Create
         public ActionResult Create(RecipeCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateRecipeService();
+
+            if (service.CreateRecipe(model))
+                
+            {
+                ViewBag.SaveResult = "Look at you and your Recipe Creating Self. You rock!.";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "Fail. Don't give up! Recipe Creating is FUN!");
+
+          
+                return View(model);
+            
+
+           
+        }
+
+        private RecipeService CreateRecipeService()
+        {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new RecipeService(userID);
-
-            service.CreateRecipe(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
-        
-        
+
+
 
         // POST: Recipe/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
