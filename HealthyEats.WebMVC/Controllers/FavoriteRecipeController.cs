@@ -85,18 +85,19 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: FavoriteRecipe/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            FavoriteRecipe favoriteRecipe = db.FavoriteRecipes.Find(id);
-            if (favoriteRecipe == null)
-            {
-                return HttpNotFound();
-            }
-            return View(favoriteRecipe);
+            var service = CreateFavoriteRecipeService();
+            var detail = service.GetFavoriteRecipeByID(id);
+            var model =
+                new FavoriteRecipeEdit
+                {
+                    FavoriteRecipeID = detail.FavoriteRecipeID,
+                    FavoriteList = detail.FavoriteList,
+                    RecipeID = detail.RecipeID,
+                    Recipes = detail.Recipes
+                };
+            return View(model);
         }
 
         // POST: FavoriteRecipe/Edit/5

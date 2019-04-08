@@ -12,7 +12,7 @@ namespace HealthyEats.Services
     public class FavoriteRecipeService
     {
 
-        private readonly Guid  _userId; 
+        private readonly Guid _userId;
 
         public FavoriteRecipeService(Guid userId)
         {
@@ -75,5 +75,24 @@ namespace HealthyEats.Services
                     };
             }
         }
+
+        public bool UpdateFavoriteRecipe(FavoriteRecipeEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .FavoriteRecipes
+                    .Single(e => e.FavoriteRecipeID == model.FavoriteRecipeID && e.UserID == _userId);
+
+
+                entity.FavoriteList = model.FavoriteList;
+                entity.RecipeID = model.RecipeID;
+                entity.Recipes = model.Recipes;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
+

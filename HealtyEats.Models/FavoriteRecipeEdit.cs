@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace HealtyEats.Models
 {
-    public class MealDetail
+    public class FavoriteRecipeEdit
     {
-        public int MealID { get; set; }
-        public string MealName { get; set; }
-        public string MealDescription { get; set; }
+        public int FavoriteRecipeID { get; set; }
+        public string FavoriteList { get; set; }
+        public int RecipeID { get; set; }
         public virtual ICollection<Recipe> Recipes { get; set; }
-        public override string ToString() => $"[{MealID}] {MealName}";
     }
 }

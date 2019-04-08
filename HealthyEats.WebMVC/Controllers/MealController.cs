@@ -82,18 +82,18 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Meal/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult RecipeEdit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Meal meal = db.Meals.Find(id);
-            if (meal == null)
-            {
-                return HttpNotFound();
-            }
-            return View(meal);
+            var service = CreateMealService();
+            var detail = service.GetMealByID(id);
+            var model =
+                new MealEdit
+                {
+                    MealID = detail.MealID,
+                    MealName = detail.MealName,
+                    MealDescription = detail.MealDescription,
+                    Recipes = detail.Recipes
+                };
         }
 
         // POST: Meal/Edit/5

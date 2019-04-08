@@ -75,5 +75,22 @@ namespace HealthyEats.Services
                     };
             }
         }
+
+        public bool UpdateMeal(MealEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Meals
+                    .Single(e => e.MealID == model.MealID && e.UserID == _userId);
+
+                entity.MealName = model.MealName;
+                entity.MealDescription = model.MealDescription;
+                entity.Recipes = model.Recipes;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
