@@ -1,150 +1,91 @@
-﻿using System;
+﻿using HealtyEats.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using HealthyEats.Services;
-using HealthyEats.WebMVC.Data;
-using HealtyEats.Models;
-using Microsoft.AspNet.Identity;
 
 namespace HealthyEats.WebMVC.Controllers
 {
     public class MealController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Meal
         public ActionResult Index()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MealService(userId);
-            var model = service.GetMeals();
-            return View(db.Meals.ToList());
+            var model = new MealListItem[0];
+            return View(model);
         }
 
         // GET: Meal/Details/5
         public ActionResult Details(int id)
         {
-            var svc = CreateMealService();
-            var model = svc.GetMealByID(id);
-
-            return View(model);
+            return View();
         }
 
         // GET: Meal/Create
-        public ActionResult Create(MealCreate model)
+        public ActionResult Create()
         {
-            if (!ModelState.IsValid) return View(model);
-
-            var service = CreateMealService();
-
-            if (service.CreateMeal(model))
-            {
-                TempData["SaveResult"] = "WOOHOO! Meal Tracking is AWESOME!";
-                return RedirectToAction("Index");
-            };
-
-            ModelState.AddModelError("", "BOOH! Meal was not created. Such a sad moment.");
-            {
-                return View(model);
-            }
-
-
+            return View();
         }
-
-        private MealService CreateMealService()
-        {
-            var userID = Guid.Parse(User.Identity.GetUserId());
-            var service = new MealService(userID);
-            return service;
-        }
-
 
         // POST: Meal/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MealID,UserID,MealName,MealDescription")] Meal meal)
+        public ActionResult Create(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Meals.Add(meal);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            return View(meal);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Meal/Edit/5
-        public ActionResult RecipeEdit(int id)
+        public ActionResult Edit(int id)
         {
-            var service = CreateMealService();
-            var detail = service.GetMealByID(id);
-            var model =
-                new MealEdit
-                {
-                    MealID = detail.MealID,
-                    MealName = detail.MealName,
-                    MealDescription = detail.MealDescription,
-                    Recipes = detail.Recipes
-                };
+            return View();
         }
 
         // POST: Meal/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MealID,UserID,MealName,MealDescription")] Meal meal)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(meal).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            return View(meal);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Meal/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Meal meal = db.Meals.Find(id);
-            if (meal == null)
-            {
-                return HttpNotFound();
-            }
-            return View(meal);
+            return View();
         }
 
         // POST: Meal/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Meal meal = db.Meals.Find(id);
-            db.Meals.Remove(meal);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            catch
+            {
+                return View();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using HealtyEats.WebMVC.Models;
+﻿using HealtyEats.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,29 +7,28 @@ using System.Web.Mvc;
 
 namespace HealthyEats.WebMVC.Controllers
 {
-    [Authorize]
-    public class FavoriteRecipeController : Controller
+    public class ReipeController : Controller
     {
-        // GET: FavoriteRecipe
+        // GET: Reipe
         public ActionResult Index()
         {
-            var model = new FavoriteRecipeListItem[0];
+            var model = new RecipeListItem[0];
             return View(model);
         }
 
-        // GET: FavoriteRecipe/Details/5
+        // GET: Reipe/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: FavoriteRecipe/Create
+        // GET: Reipe/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: FavoriteRecipe/Create
+        // POST: Reipe/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -45,13 +44,13 @@ namespace HealthyEats.WebMVC.Controllers
             }
         }
 
-        // GET: FavoriteRecipe/Edit/5
+        // GET: Reipe/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: FavoriteRecipe/Edit/5
+        // POST: Reipe/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -67,13 +66,13 @@ namespace HealthyEats.WebMVC.Controllers
             }
         }
 
-        // GET: FavoriteRecipe/Delete/5
+        // GET: Reipe/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: FavoriteRecipe/Delete/5
+        // POST: Reipe/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

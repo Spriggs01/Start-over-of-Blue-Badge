@@ -18,9 +18,10 @@ namespace HealthyEats.Data
         [Required]
         public Guid UserID { get; set; }
 
-        [Key]
+        
         public int RecipeID { get; set; }
 
+        [Key]
         [Required]
         public string RecipeTitle { get; set; }
 
