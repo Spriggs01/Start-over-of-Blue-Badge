@@ -1,4 +1,7 @@
-﻿using HealtyEats.WebMVC.Models;
+﻿using HealthyEats.Services;
+using HealtyEats.Models;
+using HealtyEats.WebMVC.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +16,9 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: FavoriteRecipe
         public ActionResult Index()
         {
-            var model = new FavoriteRecipeListItem[0];
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteRecipeService(userID);
+            var model = service.GetFavoriteRecipes();
             return View(model);
         }
 
@@ -27,22 +32,25 @@ namespace HealthyEats.WebMVC.Controllers
         public ActionResult Create()
         {
             return View();
+        
         }
 
         // POST: FavoriteRecipe/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FavoriteRecipeCreate favoriteRecipe)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                return View(favoriteRecipe);
+            }
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new FavoriteRecipeService(userID);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            service.CreateFavoriteRecipe(favoriteRecipe);
+
+            return RedirectToAction("Index");
+
+
         }
 
         // GET: FavoriteRecipe/Edit/5

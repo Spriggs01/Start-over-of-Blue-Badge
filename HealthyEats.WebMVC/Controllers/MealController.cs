@@ -1,4 +1,6 @@
-﻿using HealtyEats.Models;
+﻿using HealthyEats.Services;
+using HealtyEats.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,10 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal
         public ActionResult Index()
         {
-            var model = new MealListItem[0];
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new MealService(userID);
+            var model = service.GetMeals();
+
             return View(model);
         }
 
@@ -25,23 +30,25 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal/Create
         public ActionResult Create()
         {
+
             return View();
         }
 
         // POST: Meal/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(MealCreate meal)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                return View(meal);
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MealService(userId);
+
+            service.CreateMeal(meal);
+
+            return RedirectToAction("Index");
         }
 
         // GET: Meal/Edit/5

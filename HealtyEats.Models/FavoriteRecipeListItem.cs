@@ -19,5 +19,8 @@ namespace HealtyEats.WebMVC.Models
         public int  RecipeID { get; set; }
 
         public virtual ICollection<Recipe> Recipes { get; set; }
+
+        public override string ToString() => FavoriteList;
+       
     }
 }

@@ -14,7 +14,11 @@ namespace HealtyEats.Models
         [Required]
         public string RecipeTitle { get; set; }
 
-        
+        public string  MealName { get; set; }
+
+        public string MealDescription { get; set; }
+
+
         public string Link { get; set; }
 
         public int Calories { get; set; }

@@ -1,4 +1,6 @@
-﻿using HealtyEats.Models;
+﻿using HealthyEats.Services;
+using HealtyEats.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +9,14 @@ using System.Web.Mvc;
 
 namespace HealthyEats.WebMVC.Controllers
 {
-    public class ReipeController : Controller
+    public class RecipeController : Controller
     {
         // GET: Reipe
         public ActionResult Index()
         {
-            var model = new RecipeListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RecipeService(userId);
+            var model = service.GetRecipe();
             return View(model);
         }
 
@@ -26,22 +30,25 @@ namespace HealthyEats.WebMVC.Controllers
         public ActionResult Create()
         {
             return View();
+        
         }
 
         // POST: Reipe/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(RecipeCreate recipe)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                return View(recipe);
+            }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RecipeService(userId);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            service.CreateRecipe(recipe);
+
+            return RedirectToAction("Index");
+
+
         }
 
         // GET: Reipe/Edit/5
