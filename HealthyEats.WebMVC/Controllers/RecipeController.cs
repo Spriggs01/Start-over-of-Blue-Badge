@@ -16,14 +16,16 @@ namespace HealthyEats.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new RecipeService(userId);
-            var model = service.GetRecipe();
-            return View(model);
+            var recipe = service.GetRecipe();
+            return View(recipe);
         }
 
         // GET: Reipe/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var svc = RecipeService();
+            var recipe = svc.GetRecipeByID(id);
+            return View(recipe);
         }
 
         // GET: Reipe/Create

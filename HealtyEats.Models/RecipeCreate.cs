@@ -10,8 +10,8 @@ namespace HealtyEats.Models
 { 
     public class RecipeCreate
     {
-        [Key]
-        [Required]
+        
+        
         public string RecipeTitle { get; set; }
 
         public string  MealName { get; set; }

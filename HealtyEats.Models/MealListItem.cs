@@ -12,7 +12,7 @@ namespace HealtyEats.Models
     {
         public int MealID { get; set; }
 
-        [Key]
+       
         public string MealName { get; set; }
 
         public string MealDescription { get; set; }

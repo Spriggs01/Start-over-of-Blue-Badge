@@ -13,7 +13,7 @@ namespace HealtyEats.WebMVC.Models
        
         public int FavoriteRecipeID { get; set; }
 
-        [Key]
+      
         public string FavoriteList { get; set; }
 
         public int  RecipeID { get; set; }

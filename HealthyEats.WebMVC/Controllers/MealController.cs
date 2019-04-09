@@ -16,15 +16,18 @@ namespace HealthyEats.WebMVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new MealService(userID);
-            var model = service.GetMeals();
+            var meal = service.GetMeals();
 
-            return View(model);
+            return View(meal);
         }
 
         // GET: Meal/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var svc = CreateMealService();
+            var meal = svc.GetMealByID(id);
+
+            return View(meal);
         }
 
         // GET: Meal/Create
