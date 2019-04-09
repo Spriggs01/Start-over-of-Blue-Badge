@@ -25,8 +25,8 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: FavoriteRecipe/Details/5
         public ActionResult Details(int id)
         {
-            var svc = CreateFavoriteRecipeService();
-            var favoriteRecipe = svc.GetFavoriteRecipeById(id);
+            var svc = FavoriteRecipeService();
+            var favoriteRecipe = svc.GetFavoriteRecipeByID(id);
             return View(favoriteRecipe);
 
 
