@@ -25,7 +25,11 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: FavoriteRecipe/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var svc = CreateFavoriteRecipeService();
+            var favoriteRecipe = svc.GetFavoriteRecipeById(id);
+            return View(favoriteRecipe);
+
+
         }
 
         // GET: FavoriteRecipe/Create
@@ -37,20 +41,35 @@ namespace HealthyEats.WebMVC.Controllers
 
         // POST: FavoriteRecipe/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(FavoriteRecipeCreate favoriteRecipe)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(favoriteRecipe);
+
+            var service = FavoriteRecipeService();
+
+            if (service.CreateFavoriteRecipe(favoriteRecipe))
+            
             {
-                return View(favoriteRecipe);
-            }
+                TempData["SaveResult"] = "YAY to Favorite Recipes!!";
+                return RedirectToAction("Index");
+
+            };
+
+            ModelState.AddModelError("", "So Sad. No Favorite Recipe Created. Don't Give up!");
+
+            return View(favoriteRecipe);
+            
+            
+
+
+        }
+
+        public FavoriteRecipeService FavoriteRecipeService()
+        {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new FavoriteRecipeService(userID);
-
-            service.CreateFavoriteRecipe(favoriteRecipe);
-
-            return RedirectToAction("Index");
-
-
+            return service;
         }
 
         // GET: FavoriteRecipe/Edit/5

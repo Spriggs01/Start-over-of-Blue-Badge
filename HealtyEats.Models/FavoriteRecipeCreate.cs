@@ -10,10 +10,10 @@ namespace HealtyEats.Models
 {
     public class FavoriteRecipeCreate
     {
-        [Key]
+
         public string FavoriteList { get; set; }
 
-        [Required]
+       
         public virtual ICollection<Recipe> Recipes { get; set; }
 
         public override string ToString() => FavoriteList;

@@ -35,20 +35,35 @@ namespace HealthyEats.WebMVC.Controllers
 
         // POST: Reipe/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(RecipeCreate recipe)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(recipe);
+
+            var service = RecipeService();
+
+            if (service.CreateRecipe(recipe))
+
             {
-                return View(recipe);
+                TempData["SaveResult"] = "MMMMM, that's a TASTY Recipe!NOM NOM NOM";
+                return RedirectToAction("Index");
             }
+
+            ModelState.AddModelError("", "Lame! Not you, this app...Well?.. No Recipe was created. Don't Give up!");
+
+
+            return View(recipe);
+
+            
+
+
+        }
+
+        public RecipeService RecipeService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new RecipeService(userId);
-
-            service.CreateRecipe(recipe);
-
-            return RedirectToAction("Index");
-
-
+            return service;
         }
 
         // GET: Reipe/Edit/5

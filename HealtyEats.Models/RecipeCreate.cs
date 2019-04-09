@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HealtyEats.Models
-{
+{ 
     public class RecipeCreate
     {
         [Key]

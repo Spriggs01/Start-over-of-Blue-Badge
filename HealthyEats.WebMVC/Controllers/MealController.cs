@@ -36,19 +36,33 @@ namespace HealthyEats.WebMVC.Controllers
 
         // POST: Meal/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(MealCreate meal)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(meal);
-            }
+            if (!ModelState.IsValid) return View(meal);
+            var service = CreateMealService();
 
+            if (service.CreateMeal(meal))
+
+            {
+                TempData["SaveResult"] = "Woot! Meal Tracking is AWESOME!";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Super Lame! Not, you,..Well..No Meal was created. Don't Give up!");
+
+            return View(meal);
+
+            
+
+           
+        }
+
+        public MealService CreateMealService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MealService(userId);
-
-            service.CreateMeal(meal);
-
-            return RedirectToAction("Index");
+            return service;
         }
 
         // GET: Meal/Edit/5
