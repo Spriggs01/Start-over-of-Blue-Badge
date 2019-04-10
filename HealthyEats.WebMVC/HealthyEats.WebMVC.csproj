@@ -243,6 +243,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Meal\Index.cshtml" />
+    <Content Include="Views\Meal\Create.cshtml" />
+    <Content Include="Views\Meal\Edit.cshtml" />
+    <Content Include="Views\Meal\Details.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Index.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Details.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Create.cshtml" />
+    <Content Include="Views\FavoriteRecipe\Edit.cshtml" />
+    <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\Recipe\Details.cshtml" />
+    <Content Include="Views\Recipe\Create.cshtml" />
+    <Content Include="Views\Recipe\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
