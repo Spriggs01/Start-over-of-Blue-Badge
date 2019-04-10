@@ -10,22 +10,16 @@ namespace HealthyEats.Data
 {
     public class Recipe
     {
-        public Recipe()
-        {
-            this.Meals = new HashSet<Meal>();
-            this.FavoriteRecipes = new HashSet<FavoriteRecipe>();
-        }
+        
         [Required]
         public Guid UserID { get; set; }
 
-        
+        [Key]
         public int RecipeID { get; set; }
 
-        [Key]
         [Required]
         public string RecipeTitle { get; set; }
 
-        
         public string Link { get; set; }
 
         public int Calories { get; set; }
@@ -34,14 +28,9 @@ namespace HealthyEats.Data
 
         public string Dietary { get; set; }
 
-       
+        public virtual Meal Meal { get; set; }
 
-        [Required]
-        public int RecipeTypeID { get; set; }
-
-        public virtual ICollection<Meal> Meals { get; set; }
-
-        public virtual ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
+        
 
 
     }

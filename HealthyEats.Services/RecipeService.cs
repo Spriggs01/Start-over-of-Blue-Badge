@@ -27,8 +27,9 @@ namespace HealthyEats.Services
                     Calories = model.Calories,
                     TypeName = model.TypeName,
                     Dietary = model.Dietary,
-                    Meals = model.Meals,
-                    FavoriteRecipes = model.FavoriteRecipes
+                    Meal  = model.Meal
+                    
+                    //FavoriteRecipes = model.FavoriteRecipes
 
                 };
 
@@ -56,8 +57,9 @@ namespace HealthyEats.Services
                             Calories = e.Calories,
                             TypeName = e.TypeName,
                             Dietary = e.Dietary,
-                            Meals = e.Meals,
-                            FavoriteRecipes = e.FavoriteRecipes
+                            Meal = e.Meal
+                            
+                           // FavoriteRecipes = e.FavoriteRecipes
                         }
                         );
 
@@ -82,6 +84,7 @@ namespace HealthyEats.Services
                         TypeName = entity.TypeName,
                         Calories = entity.Calories,
                         Dietary = entity.Dietary,
+                       // Meal = entity.Meal
 
 
                     };

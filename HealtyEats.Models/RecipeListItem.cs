@@ -25,9 +25,9 @@ namespace HealtyEats.Models
 
 
 
-        public virtual ICollection<Meal> Meals { get; set; }
+        public virtual Meal Meal { get; set; }
 
-        public virtual ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
+       
 
         public override string ToString() => RecipeTitle;
     }

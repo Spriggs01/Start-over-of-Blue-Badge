@@ -26,7 +26,7 @@ namespace HealthyEats.WebMVC.Data
 
        
 
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        //public virtual ICollection<Recipe> Recipes { get; set; }
 
 
     }

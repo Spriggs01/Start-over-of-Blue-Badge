@@ -24,7 +24,7 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
-                    Recipes = model.Recipes,
+                  //  Recipes = model.Recipes,
                     
                 };
 
@@ -50,7 +50,7 @@ namespace HealthyEats.Services
                             MealID = e.MealID,
                             MealName = e.MealName,
                             MealDescription = e.MealDescription,
-                            Recipes = e.Recipes
+                           // Recipes = e.Recipes
                         }
                         );
                 return query.ToArray();
@@ -70,7 +70,7 @@ namespace HealthyEats.Services
                     {
                         MealID = entity.MealID,
                         MealName = entity.MealName,
-                        Recipes = entity.Recipes
+                      //  Recipes = entity.Recipes
 
                     };
             }
@@ -87,7 +87,7 @@ namespace HealthyEats.Services
 
                 entity.MealName = model.MealName;
                 entity.MealDescription = model.MealDescription;
-                entity.Recipes = model.Recipes;
+               // entity.Recipes = model.Recipes;
 
                 return ctx.SaveChanges() == 1;
             }
