@@ -61,6 +61,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeTitle }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TypeName })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Calories }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Dietary }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Link }) ||
     @Html.ActionLink("Back to List", "Index")
 </p>

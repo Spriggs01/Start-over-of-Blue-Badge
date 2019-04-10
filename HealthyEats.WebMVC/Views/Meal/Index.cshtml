@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HealtyEats.Models.MealCreate>
+﻿@model IEnumerable<HealtyEats.Models.MealListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -41,9 +41,9 @@
                 @Html.DisplayFor(modelItem => item.MealDescription)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id = item.MealName}) |
+                @Html.ActionLink("Details", "Details", new {  id=item.MealName }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MealName})
             </td>
         </tr>
     }

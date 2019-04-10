@@ -1,4 +1,5 @@
-﻿using HealthyEats.Data;
+﻿
+using HealthyEats.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,23 +13,18 @@ namespace HealthyEats.WebMVC.Data
 
     public class Meal
     {
-        public Meal()
-        {
-            this.Recipes = new HashSet<Recipe>();
-        }
-
+      
         [Required]
         public Guid UserID { get; set; }
 
-        
-
-        
+        [Key]
         public int MealID { get; set; }
 
-        [Key]
         public string MealName { get; set; }
 
         public string MealDescription { get; set; }
+
+       
 
         public virtual ICollection<Recipe> Recipes { get; set; }
 

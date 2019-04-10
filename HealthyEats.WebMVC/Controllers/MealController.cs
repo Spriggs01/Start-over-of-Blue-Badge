@@ -42,6 +42,7 @@ namespace HealthyEats.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MealCreate meal)
         {
+            meal.RecipeId = 1;
             if (!ModelState.IsValid) return View(meal);
             var service = CreateMealService();
 
