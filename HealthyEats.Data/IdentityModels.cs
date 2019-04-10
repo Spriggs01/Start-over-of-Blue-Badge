@@ -47,27 +47,17 @@ namespace HealthyEats.WebMVC.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
 
-            modelBuilder.Entity<FavoriteRecipe>()
-                .HasMany<Recipe>(s => s.Recipes)
-                .WithMany(c => c.FavoriteRecipes)
-                .Map(cs =>
-                {
-                    cs.MapLeftKey("FavoriteRecipe_FavoriteRecipeID");
-                    cs.MapRightKey("Recipe_RecipeID");
-                    cs.ToTable("FavoriteRecipes");
-                });
+            modelBuilder.Entity<Recipe>()
+                .HasOptional<FavoriteRecipe>(s => s.FavoriteRecipe)
+                 .WithMany(g => g.Recipes)
+                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Meal>()
-                .HasMany<Recipe>(s => s.Recipes)
-                .WithMany(c => c.Meals)
-                .Map(cs =>
-                {
-                    cs.MapLeftKey("Meal_MealID");
-                    cs.MapRightKey("Recipe_RecipeID");
-                    cs.ToTable("MealRecipe");
-                });
+            modelBuilder.Entity<Recipe>()
+                .HasRequired(s => s.Meal)
+                .WithRequiredPrincipal(r => r.Recipe);
 
-           
+
+
         }
 
 

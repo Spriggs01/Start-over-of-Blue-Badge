@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthyEats.WebMVC.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,9 @@ namespace HealtyEats.Models
 
         public string Dietary { get; set; }
 
+        public virtual Meal Meal { get; set; }
 
-       
+
+
     }
 }

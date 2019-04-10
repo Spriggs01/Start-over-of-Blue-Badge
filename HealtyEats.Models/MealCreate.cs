@@ -10,7 +10,7 @@ namespace HealtyEats.Models
 {
     public class MealCreate
     {
-        public int RecipeId { get; set; }
+        public int MealID { get; set; }
 
         public string MealName { get; set; }
 
@@ -18,6 +18,6 @@ namespace HealtyEats.Models
 
         public virtual ICollection<Recipe> Recipes { get; set; }
 
-        public override string ToString() => MealName;
+        public override string ToString() => $"[{MealID}] {MealName}";
     }
 }
