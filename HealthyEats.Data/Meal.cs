@@ -17,6 +17,7 @@ namespace HealthyEats.WebMVC.Data
 
         [Required]
         public Guid UserID { get; set; }
+
         [ForeignKey("Recipe")]
         public int RecipeID { get; set; }
 

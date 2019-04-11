@@ -35,7 +35,6 @@ namespace HealthyEats.WebMVC.Data
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<FavoriteRecipe> FavoriteRecipes { get; set; }
-        public DbSet<YummyFood> YummyFoods { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

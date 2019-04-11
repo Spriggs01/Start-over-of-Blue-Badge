@@ -67,10 +67,6 @@
     <Compile Include="RecipeDetail.cs" />
     <Compile Include="RecipeEdit.cs" />
     <Compile Include="RecipeListItem.cs" />
-    <Compile Include="YummyFoodCreate.cs" />
-    <Compile Include="YummyFoodDetail.cs" />
-    <Compile Include="YummyFoodEdit.cs" />
-    <Compile Include="YummyFoodListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
