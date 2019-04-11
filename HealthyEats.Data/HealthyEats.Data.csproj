@@ -59,6 +59,7 @@
     <Compile Include="Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe.cs" />
+    <Compile Include="YummyFood.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

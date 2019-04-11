@@ -8,6 +8,7 @@ namespace HealthyEats.Data
 {
    public class YummyFood
     {
+        public Guid UserID { get; set; }
 
         public int MealID { get; set; }
 

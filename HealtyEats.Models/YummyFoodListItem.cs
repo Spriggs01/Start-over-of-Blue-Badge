@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace HealtyEats.Models
 {
-    class YummyFoodListItem
+    public class YummyFoodListItem
     {
+
+        public int RecipeID { get; set; }
+
+        public int MealID { get; set; }
+
     }
 }

@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\RecipeController.cs" />
+    <Compile Include="Controllers\YummyFoodController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,7 @@
     <Content Include="Views\Meal\Index.cshtml" />
     <Content Include="Views\FavoriteRecipe\Index.cshtml" />
     <Content Include="Views\Recipe\Index.cshtml" />
+    <Content Include="Views\YummyFood\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
