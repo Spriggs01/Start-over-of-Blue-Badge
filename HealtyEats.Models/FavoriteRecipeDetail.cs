@@ -9,10 +9,12 @@ namespace HealtyEats.Models
 {
     public class FavoriteRecipeDetail
     {
-        public int FavoriteRecipeID { get; set; }
-        public string FavoriteList { get; set; }
         public int RecipeID { get; set; }
-        public virtual ICollection<Recipe>  Recipes { get; set; }
+
+        public int FavoriteRecipeID { get; set; }
+
+        public string FavoriteList { get; set; }
+
         public override string ToString() => $"[{FavoriteRecipeID} {RecipeID}] {FavoriteList}";
     }
 }

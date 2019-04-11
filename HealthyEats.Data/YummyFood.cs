@@ -1,21 +1,16 @@
-﻿using HealthyEats.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HealtyEats.Models
+namespace HealthyEats.Data
 {
-    public class MealEdit
+   public class YummyFood
     {
+
         public int MealID { get; set; }
 
         public int RecipeID { get; set; }
-
-        public string MealName { get; set; }
-
-        public string MealDescription { get; set; }
-
     }
 }

@@ -26,7 +26,7 @@ namespace HealthyEats.Services
                 {
                     UserID = _userId,
                     FavoriteList = model.FavoriteList,
-                    Recipes = model.Recipes
+                    RecipeID = model.RecipeID
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -50,7 +50,7 @@ namespace HealthyEats.Services
                         {
                             FavoriteRecipeID = e.FavoriteRecipeID,
                             FavoriteList = e.FavoriteList,
-                            Recipes = e.Recipes
+                            RecipeID = e.RecipeID
                         }
                         );
                 return query.ToArray();
@@ -71,7 +71,7 @@ namespace HealthyEats.Services
                         FavoriteRecipeID = entity.FavoriteRecipeID,
                         FavoriteList = entity.FavoriteList,
                         RecipeID = entity.RecipeID,
-                        Recipes = entity.Recipes
+                       
                     };
             }
         }
@@ -85,11 +85,10 @@ namespace HealthyEats.Services
                     .FavoriteRecipes
                     .Single(e => e.FavoriteRecipeID == model.FavoriteRecipeID && e.UserID == _userId);
 
-
+                entity.FavoriteRecipeID = model.FavoriteRecipeID;
                 entity.FavoriteList = model.FavoriteList;
                 entity.RecipeID = model.RecipeID;
-                entity.Recipes = model.Recipes;
-
+                
                 return ctx.SaveChanges() == 1;
             }
         }

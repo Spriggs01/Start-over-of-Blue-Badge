@@ -9,19 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@if (TempData.ContainsKey("SaveResult"))
-{
-<div class="alert alert-success fade in" role="alert">
-    @ViewBag.SaveResult
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-</div>
-}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FavoriteRecipeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RecipeID)
@@ -29,21 +23,23 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FavoriteRecipeID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecipeID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.FavoriteList }) |
-                @Html.ActionLink("Details", "Details", new { id = item.FavoriteList }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.FavoriteList })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FavoriteRecipeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FavoriteList }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FavoriteList }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FavoriteList })
+        </td>
+    </tr>
+}
 
 </table>

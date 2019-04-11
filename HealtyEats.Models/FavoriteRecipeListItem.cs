@@ -13,12 +13,13 @@ namespace HealtyEats.WebMVC.Models
        
         public int FavoriteRecipeID { get; set; }
 
+        public int MealID { get; set; }
+
         [Key]
         public string FavoriteList { get; set; }
 
         public int  RecipeID { get; set; }
 
-        public virtual ICollection<Recipe> Recipes { get; set; }
 
         public override string ToString() => FavoriteList;
        

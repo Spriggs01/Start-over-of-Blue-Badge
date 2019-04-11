@@ -10,8 +10,12 @@ namespace HealtyEats.Models
     public class FavoriteRecipeEdit
     {
         public int FavoriteRecipeID { get; set; }
+
+        public int MealID { get; set; }
+
         public string FavoriteList { get; set; }
+
         public int RecipeID { get; set; }
-        public virtual ICollection<Recipe> Recipes { get; set; }
+
     }
 }

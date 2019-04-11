@@ -10,17 +10,14 @@ namespace HealthyEats.WebMVC.Data
 {
     public class FavoriteRecipe
     {
-        public FavoriteRecipe()
-        {
-            this.Recipes = new HashSet<Recipe>();
-        }
-
-
-
         
+
+
+
+        [Key]
         public int FavoriteRecipeID { get; set; }
         
-        [Key]
+        
         public string FavoriteList { get; set; }
 
         public int RecipeID { get; set; }
@@ -30,7 +27,7 @@ namespace HealthyEats.WebMVC.Data
         public Guid UserID { get; set; }
 
 
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        public virtual Recipe Recipe { get; set; }
 
     }
 }

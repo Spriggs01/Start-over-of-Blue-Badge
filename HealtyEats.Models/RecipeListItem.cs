@@ -12,7 +12,8 @@ namespace HealtyEats.Models
     {
         public int RecipeID { get; set; }
 
-        [Key]
+        public int MealID { get; set; }
+
         public string RecipeTitle { get; set; }
 
         public string Link { get; set; }
@@ -22,12 +23,6 @@ namespace HealtyEats.Models
         public string TypeName { get; set; }
 
         public string Dietary { get; set; }
-
-
-
-        public virtual ICollection<Meal> Meals { get; set; }
-
-        public virtual ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
 
         public override string ToString() => RecipeTitle;
     }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HealtyEats.Models.MealCreate>
+﻿@model IEnumerable<HealtyEats.Models.MealListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -9,21 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@if (TempData.ContainsKey("SaveResult"))
-{
-
-
-    <div class="alert alert-success fade in" role="alert">
-        @ViewBag.SaveResult
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-    </div>
-}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MealName)
+            @Html.DisplayNameFor(model => model.MealID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MealDescription)
@@ -31,21 +23,23 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MealName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MealDescription)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MealName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MealName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MealName })
+        </td>
+    </tr>
+}
 
 </table>

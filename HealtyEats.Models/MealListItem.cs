@@ -12,12 +12,13 @@ namespace HealtyEats.Models
     {
         public int MealID { get; set; }
 
+        public int RecipeID { get; set; }
+
         [Key]
         public string MealName { get; set; }
 
         public string MealDescription { get; set; }
 
-        public virtual ICollection<Recipe> Recipes { get; set; }
 
         public override string ToString() => MealName;
         
