@@ -15,8 +15,10 @@ namespace HealtyEats.Models
         public int RecipeID { get; set; }
 
         [Key]
+        [Display(Name = "Meal Name")]
         public string MealName { get; set; }
 
+        [Display(Name = "Meal Description")]
         public string MealDescription { get; set; }
 
 

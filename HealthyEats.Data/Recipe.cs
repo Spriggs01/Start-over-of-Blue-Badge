@@ -14,6 +14,8 @@ namespace HealthyEats.Data
         [Required]
         public Guid UserID { get; set; }
 
+       
+
         [Key]
         public int RecipeID { get; set; }
 

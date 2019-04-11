@@ -27,8 +27,8 @@ namespace HealthyEats.Services
                     Calories = model.Calories,
                     TypeName = model.TypeName,
                     Dietary = model.Dietary,
-                    
-                   
+
+
 
                 };
 
@@ -57,7 +57,7 @@ namespace HealthyEats.Services
                             Calories = e.Calories,
                             TypeName = e.TypeName,
                             Dietary = e.Dietary,
-                            
+
                         }
                         );
 
@@ -87,9 +87,35 @@ namespace HealthyEats.Services
 
                     };
             }
-
         }
-    }
 
+        public IEnumerable<RecipeListItem> GetRecipeByUserID(Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Where(e => e.UserID == userId)
+                    .Select(e => new RecipeListItem
+                    {
+                        RecipeID = e.RecipeID,
+                        RecipeTitle = e.RecipeTitle,
+                        Link = e.Link,
+                        Calories = e.Calories,
+                        TypeName = e.TypeName,
+                        Dietary = e.Dietary
+
+                    });
+                return query.ToArray();
+
+
+
+            }
+        }
+
+    }
 }
+
+
 

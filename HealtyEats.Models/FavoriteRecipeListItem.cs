@@ -15,7 +15,7 @@ namespace HealtyEats.WebMVC.Models
 
         public int MealID { get; set; }
 
-        [Key]
+        [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
         public int  RecipeID { get; set; }

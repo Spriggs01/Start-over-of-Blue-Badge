@@ -34,7 +34,16 @@ namespace HealthyEats.WebMVC.Controllers
 
         // GET: FavoriteRecipe/Create
         public ActionResult Create()
+
+
         {
+            var recipeID = Guid.Parse(User.Identity.GetUserId());
+            var recipeService = new RecipeService(recipeID);
+            var recipeList = recipeService.GetRecipeByUserID(recipeID);
+
+            ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
+
+
             return View();
         
         }

@@ -12,6 +12,7 @@ namespace HealtyEats.Models
     {
         public int RecipeID { get; set; }
 
+        [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
         public override string ToString() => FavoriteList;

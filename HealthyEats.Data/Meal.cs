@@ -24,6 +24,7 @@ namespace HealthyEats.WebMVC.Data
         [Key]
         public int MealID { get; set; }
         
+      
         public string MealName { get; set; }
 
         public string MealDescription { get; set; }

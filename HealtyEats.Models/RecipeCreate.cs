@@ -10,21 +10,18 @@ namespace HealtyEats.Models
 { 
     public class RecipeCreate
     {
-       
+       [Display(Name = "Recipe Title")]
         public string RecipeTitle { get; set; }
-
-        public string  MealName { get; set; }
-
-        public string MealDescription { get; set; }
-
 
         public string Link { get; set; }
 
         public int Calories { get; set; }
 
+        [Display(Name ="Type of Meal (Ex:Breakfast/Lunch?)")]
         public string TypeName { get; set; }
 
         public string Dietary { get; set; }
+
 
         public string Image { get; set; }
 
