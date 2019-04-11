@@ -1,0 +1,42 @@
+﻿@model HealtyEats.Models.FavoriteRecipeDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FavoriteRecipeDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoriteRecipeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoriteRecipeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoriteList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoriteList)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FavoriteRecipeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

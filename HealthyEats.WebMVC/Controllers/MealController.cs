@@ -24,7 +24,9 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var svc = CreateMealService();
+            var model = svc.GetMealByID(id);
+            return View(model);
         }
 
         // GET: Meal/Create

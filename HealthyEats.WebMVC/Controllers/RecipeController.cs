@@ -11,7 +11,7 @@ namespace HealthyEats.WebMVC.Controllers
 {
     public class RecipeController : Controller
     {
-        // GET: Reipe
+        // GET: Rceipe
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -20,20 +20,22 @@ namespace HealthyEats.WebMVC.Controllers
             return View(model);
         }
 
-        // GET: Reipe/Details/5
+        // GET: Recipe/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var svc = RecipeService();
+            var model = svc.GetRecipeByID(id);
+            return View(model);
         }
 
-        // GET: Reipe/Create
+        // GET: Recipe/Create
         public ActionResult Create()
         {
             return View();
         
         }
 
-        // POST: Reipe/Create
+        // POST: Recipe/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(RecipeCreate recipe)
