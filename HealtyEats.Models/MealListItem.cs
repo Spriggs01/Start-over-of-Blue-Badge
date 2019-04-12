@@ -21,7 +21,7 @@ namespace HealtyEats.Models
         [Display(Name = "Meal Description")]
         public string MealDescription { get; set; }
 
-        public Recipe Recipe;
+        public Recipe Recipe { get; set; }
 
         public override string ToString() => MealName;
         

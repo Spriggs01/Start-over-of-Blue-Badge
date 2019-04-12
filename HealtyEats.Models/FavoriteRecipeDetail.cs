@@ -14,6 +14,9 @@ namespace HealtyEats.Models
 
         public int FavoriteRecipeID { get; set; }
 
+        [Display(Name = "Name of Recipe")]
+        public string RecipeTitle { get; set; }
+
         [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 

@@ -18,6 +18,9 @@ namespace HealtyEats.WebMVC.Models
         [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
+        [Display(Name = "Name of Recipe")]
+        public string RecipeTitle { get; set; }
+
         public int  RecipeID { get; set; }
 
         public Recipe Recipe { get; set; }

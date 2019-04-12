@@ -16,8 +16,11 @@ namespace HealthyEats.WebMVC.Data
 
         [Key]
         public int FavoriteRecipeID { get; set; }
-        
-        
+
+       
+        public string RecipeTitle { get; set; }
+
+
         public string FavoriteList { get; set; }
 
         public int RecipeID { get; set; }
