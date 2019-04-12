@@ -99,6 +99,20 @@ namespace HealthyEats.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteFavoriteRecipe(int favoriteRecipeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .FavoriteRecipes
+                    .Single(e => e.FavoriteRecipeID == favoriteRecipeId && e.UserID == _userId);
+
+                ctx.FavoriteRecipes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 

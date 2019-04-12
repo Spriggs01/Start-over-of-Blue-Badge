@@ -127,25 +127,28 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: FavoriteRecipe/Delete/5
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var svc = FavoriteRecipeService();
+            var favoriteRecipe = svc.GetFavoriteRecipeByID(id);
+            return View(favoriteRecipe);
+           
         }
 
         // POST: FavoriteRecipe/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var service = FavoriteRecipeService();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            service.DeleteFavoriteRecipe(id);
+
+            TempData["SaveResult"] = "WOOHOO! You succesfully un-Favorited one of your besties!";
+
+            return RedirectToAction("Index");
         }
     }
 }

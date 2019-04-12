@@ -18,8 +18,6 @@ namespace HealthyEats.WebMVC.Data
         [Required]
         public Guid UserID { get; set; }
 
-        [ForeignKey("Recipe")]
-        public int RecipeID { get; set; }
 
         [Key]
         public int MealID { get; set; }
@@ -29,6 +27,6 @@ namespace HealthyEats.WebMVC.Data
 
         public string MealDescription { get; set; }
 
-        public virtual Recipe Recipe { get; set; }
+        
     }
 }

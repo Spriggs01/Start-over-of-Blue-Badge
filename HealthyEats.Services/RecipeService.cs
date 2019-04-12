@@ -130,6 +130,24 @@ namespace HealthyEats.Services
             }
         }
 
+        public bool DeleteRecipe(int recipeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Recipes
+                    .Single(e => e.RecipeID == recipeId && e.UserID == _userId);
+
+                ctx.Recipes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+
+        
+            
+        }
+
     }
 }
 

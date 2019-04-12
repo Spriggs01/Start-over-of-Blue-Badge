@@ -19,7 +19,8 @@ namespace HealthyEats.Data
         [Key]
         public int RecipeID { get; set; }
 
-        //public int MealID { get; set; }
+        
+      public int MealID { get; set; }
 
         [Required]
         public string RecipeTitle { get; set; }
@@ -32,6 +33,6 @@ namespace HealthyEats.Data
 
         public string Dietary { get; set; }
 
-        //public virtual Meal Meal { get; set; }
+        public virtual Meal Meal { get; set; }
     }
 }

@@ -9,7 +9,6 @@ namespace HealtyEats.Models
 {
     public class RecipeDetail
     {
-        public int RecipeID { get; set; }
 
         public int MealID { get; set; }
 
@@ -25,7 +24,7 @@ namespace HealtyEats.Models
 
         public string Dietary { get; set; }
 
-        public override string ToString() => $"[{RecipeID}] {RecipeTitle}";
+        public override string ToString() =>  RecipeTitle;
        
     }
 }

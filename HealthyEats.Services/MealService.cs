@@ -16,6 +16,7 @@ namespace HealthyEats.Services
             _userId = userId;
         }
 
+        //need to remove recipe id from both method and model
         public bool CreateMeal(MealCreate model)
         {
             var entity =
@@ -24,8 +25,8 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
-                    RecipeID = model.RecipeID
-                   
+
+
 
                 };
 
@@ -36,64 +37,62 @@ namespace HealthyEats.Services
             }
         }
 
-        public IEnumerable<MealListItem> GetMeals()
+
+    
+
+    //remove recipe from method and model
+    public MealDetail GetMealByID(int id)
+    {
+        using (var ctx = new ApplicationDbContext())
         {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Meals
-                    .Where(e => e.UserID == _userId)
-                    .Select(
-                        e =>
-                        new MealListItem
-                        {
-                            MealID = e.MealID,
-                            MealName = e.MealName,
-                            MealDescription = e.MealDescription,
-                            Recipe = e.Recipe,
-                        }
-                        );
-                return query.ToArray();
-            }
-        }
+            var entity =
+                ctx
+                .Meals
+                .Single(e => e.MealID == id && e.UserID == _userId);
+            return
+                new MealDetail
+                {
+                    MealID = entity.MealID,
+                    MealName = entity.MealName,
+                    MealDescription = entity.MealDescription
 
-        public MealDetail GetMealByID(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Meals
-                    .Single(e => e.MealID == id && e.UserID == _userId);
-                return
-                    new MealDetail
-                    {
-                        MealID = entity.MealID,
-                        RecipeID = entity.RecipeID,
-                        MealName = entity.MealName,
-                        
 
-                    };
-            }
-        }
-
-        public bool UpdateMeal(MealEdit mealEdit)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Meals
-                    .Single(e => e.MealID == mealEdit.MealID && e.UserID == _userId);
-
-                entity.MealID = mealEdit.MealID;
-                entity.MealName = mealEdit.MealName;
-                entity.MealDescription = mealEdit.MealDescription;
-                
-
-                return ctx.SaveChanges() == 1;
-            }
+                };
         }
     }
+
+    public bool UpdateMeal(MealEdit mealEdit)
+    {
+        using (var ctx = new ApplicationDbContext())
+        {
+            var entity =
+                ctx
+                .Meals
+                .Single(e => e.MealID == mealEdit.MealID && e.UserID == _userId);
+
+            entity.MealID = mealEdit.MealID;
+            entity.MealName = mealEdit.MealName;
+            entity.MealDescription = mealEdit.MealDescription;
+
+
+            return ctx.SaveChanges() == 1;
+        }
+    }
+
+    public bool DeleteMeal(int mealId)
+    {
+        using (var ctx = new ApplicationDbContext())
+        {
+            var entity =
+                ctx
+                .Meals
+                .Single(e => e.MealID == mealId && e.UserID == _userId);
+
+            ctx.Meals.Remove(entity);
+
+            return ctx.SaveChanges() == 1;
+        }
+    }
+}
+    
 }

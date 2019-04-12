@@ -21,6 +21,7 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Recipe/Details/5
+      
         public ActionResult Details(int id)
         {
             var svc = RecipeService();
@@ -31,6 +32,11 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
+            var recipeID = Guid.Parse(User.Identity.GetUserId());
+            var recipeService = new MealService(recipeID);
+            var recipeList = recipeService.GetMealByUserID(recipeID);
+
+            ViewBag.MealID = new SelectList(recipeList, "MealID", "MealName");
             return View();
         
         }
@@ -76,7 +82,7 @@ namespace HealthyEats.WebMVC.Controllers
             var model =
                 new RecipeEdit
                 {
-                    RecipeID = detail.RecipeID,
+                    
                     RecipeTitle = detail.RecipeTitle,
                     Link = detail.Link,
                     TypeName = detail.TypeName,
@@ -116,25 +122,28 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Reipe/Delete/5
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var svc = RecipeService();
+            var model = svc.GetRecipeByID(id);
+            return View(model);
         }
 
         // POST: Reipe/Delete/5
         [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var service = RecipeService();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            service.DeleteRecipe(id);
+
+            TempData["SaveResult"] = "Sometimes you just have to say bye-bye to old recipes!";
+
+            return RedirectToAction("Index");
+            
         }
     }
 }

@@ -11,6 +11,8 @@ namespace HealthyEats.WebMVC.Controllers
 {
     public class MealController : Controller
     {
+        //you won't need the view bag in this controller.
+        //we can use this as a example for recipecontroller 
         // GET: Meal
         public ActionResult Index()
         {
@@ -32,11 +34,11 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal/Create
         public ActionResult Create()
         {
-            var recipeID = Guid.Parse(User.Identity.GetUserId());
-            var recipeService = new RecipeService(recipeID);
-            var recipeList = recipeService.GetRecipeByUserID(recipeID);
+           // var recipeID = Guid.Parse(User.Identity.GetUserId());
+            //var recipeService = new RecipeService(recipeID);
+            //var recipeList = recipeService.GetRecipeByUserID(recipeID);
 
-           ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
+            //ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
 
 
             return View();
@@ -94,11 +96,11 @@ namespace HealthyEats.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, MealEdit mealedit)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
 
                 return View(mealedit);
 
-            if(mealedit.MealID != id)
+            if (mealedit.MealID != id)
             {
                 ModelState.AddModelError("", "Sorry Mate, the ID does not match the Meal you are trying to Edit. Don't give up!");
                 return View(mealedit);
@@ -118,25 +120,29 @@ namespace HealthyEats.WebMVC.Controllers
         }
 
         // GET: Meal/Delete/5
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var svc = CreateMealService();
+            var model = svc.GetMealByID(id);
+            return View(model);
         }
 
         // POST: Meal/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+ public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var service = CreateMealService();
+
+            service.DeleteMeal(id);
+
+            TempData["SaveResult"] = "YAY! You successfully DESTROYED a meal!";
+
+            return RedirectToAction("Index");
+
         }
     }
 }
