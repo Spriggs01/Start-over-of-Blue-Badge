@@ -20,6 +20,7 @@ namespace HealtyEats.WebMVC.Models
 
         public int  RecipeID { get; set; }
 
+        public Recipe Recipe { get; set; }
 
         public override string ToString() => FavoriteList;
        

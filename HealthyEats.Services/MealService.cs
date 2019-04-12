@@ -24,8 +24,8 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
-                   
-                    
+                    RecipeID = model.RecipeID,
+
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -50,7 +50,7 @@ namespace HealthyEats.Services
                             MealID = e.MealID,
                             MealName = e.MealName,
                             MealDescription = e.MealDescription,
-                            
+                            Recipe = e.Recipe,
                         }
                         );
                 return query.ToArray();

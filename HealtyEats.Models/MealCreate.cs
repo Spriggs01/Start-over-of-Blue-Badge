@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 namespace HealtyEats.Models
 {
     public class MealCreate
-    { 
+    {
+        [Display(Name = "Recipe Name")]
         public int RecipeID { get; set; }
-
-        public int MealID { get; set; }
 
         [Display(Name = "Meal Name")]
         public string MealName { get; set; }

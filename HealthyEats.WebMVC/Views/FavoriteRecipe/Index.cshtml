@@ -12,13 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FavoriteRecipeID)
+            @Html.DisplayNameFor(model => model.FavoriteList)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MealID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipeID)
+            @Html.DisplayNameFor(model => model.Recipe.RecipeTitle)
         </th>
         <th></th>
     </tr>
@@ -26,17 +23,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FavoriteRecipeID)
+            @Html.DisplayFor(modelItem => item.FavoriteList)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MealID)
+            @Html.DisplayFor(modelItem => item.Recipe.RecipeTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RecipeID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FavoriteList }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FavoriteList }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.FavoriteRecipeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FavoriteRecipeID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.FavoriteList })
         </td>
     </tr>
