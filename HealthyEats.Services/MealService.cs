@@ -106,7 +106,7 @@ namespace HealthyEats.Services
                 .Meals
                 .Single(e => e.MealID == mealEdit.MealID && e.UserID == _userId);
 
-            entity.MealID = mealEdit.MealID;
+            //entity.MealID = mealEdit.MealID;
             entity.MealName = mealEdit.MealName;
             entity.MealDescription = mealEdit.MealDescription;
 
