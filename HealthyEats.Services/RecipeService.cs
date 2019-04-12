@@ -108,9 +108,25 @@ namespace HealthyEats.Services
 
                     });
                 return query.ToArray();
+            }
+        }
 
+        public bool UpdateRecipe(RecipeEdit recipeEdit)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Recipes
+                    .Single(e => e.RecipeID == recipeEdit.RecipeID && e.UserID == _userId);
 
+                entity.RecipeTitle = recipeEdit.RecipeTitle;
+                entity.Link = recipeEdit.Link;
+                entity.TypeName = recipeEdit.TypeName;
+                entity.Dietary = recipeEdit.Dietary;
+                entity.Calories = recipeEdit.Calories;
 
+                return ctx.SaveChanges() == 1;
             }
         }
 

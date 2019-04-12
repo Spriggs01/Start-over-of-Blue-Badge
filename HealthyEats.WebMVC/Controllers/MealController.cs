@@ -61,9 +61,9 @@ namespace HealthyEats.WebMVC.Controllers
 
             return View(meal);
 
-            
 
-           
+
+
         }
 
         public MealService CreateMealService()
@@ -76,23 +76,45 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Meal/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var service = CreateMealService();
+            var detail = service.GetMealByID(id);
+            var model =
+                new MealEdit
+                {
+                    MealID = detail.MealID,
+                    RecipeID = detail.RecipeID,
+                    MealName = detail.MealName,
+                    MealDescription = detail.MealDescription
+                };
+            return View(model);
         }
 
         // POST: Meal/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MealEdit mealedit)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if(!ModelState.IsValid)
 
+                return View(mealedit);
+
+            if(mealedit.MealID != id)
+            {
+                ModelState.AddModelError("", "Sorry Mate, the ID does not match the Meal you are trying to Edit. Don't give up!");
+                return View(mealedit);
+            }
+
+            var service = CreateMealService();
+
+            if (service.UpdateMeal(mealedit))
+            {
+                TempData["SaveResult"] = "Only Cool People Edit their Meal Tracker! You Rock!";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ModelState.AddModelError("", "Lame, not you, this app.. Well?.. No Meal was updated. Don't Give up!");
+            return View(mealedit);
+
         }
 
         // GET: Meal/Delete/5

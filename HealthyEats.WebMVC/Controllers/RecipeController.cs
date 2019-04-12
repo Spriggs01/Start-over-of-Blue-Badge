@@ -71,23 +71,48 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Reipe/Edit/5
         public ActionResult Edit(int id)
         {
+            var service = RecipeService();
+            var detail = service.GetRecipeByID(id);
+            var model =
+                new RecipeEdit
+                {
+                    RecipeID = detail.RecipeID,
+                    RecipeTitle = detail.RecipeTitle,
+                    Link = detail.Link,
+                    TypeName = detail.TypeName,
+                    Dietary = detail.Dietary,
+                    Calories = detail.Calories
+
+                };
             return View();
         }
 
         // POST: Reipe/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, RecipeEdit recipeEdit)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid)
+                return View(recipeEdit);
 
+            if(recipeEdit.RecipeID != id)
+            {
+                ModelState.AddModelError("", "OH NO! The ID does not match. Lame.. No Recipe Updated. Don't Give up!");
+                return View(recipeEdit);
+            }
+
+            var service = RecipeService();
+
+            if (service.UpdateRecipe(recipeEdit))
+            {
+                TempData["SaveResult"] = "Yay! Look at your bad self editing your Recipe. WOOT!";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ModelState.AddModelError("", "Lame! Not you, this app.. Well?.. No Recipe was Updated! Cool people NEVER give up!");
+
+            return View(recipeEdit);
+           
         }
 
         // GET: Reipe/Delete/5

@@ -77,18 +77,18 @@ namespace HealthyEats.Services
             }
         }
 
-        public bool UpdateMeal(MealEdit model)
+        public bool UpdateMeal(MealEdit mealEdit)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Meals
-                    .Single(e => e.MealID == model.MealID && e.UserID == _userId);
+                    .Single(e => e.MealID == mealEdit.MealID && e.UserID == _userId);
 
-                entity.MealID = model.MealID;
-                entity.MealName = model.MealName;
-                entity.MealDescription = model.MealDescription;
+                entity.MealID = mealEdit.MealID;
+                entity.MealName = mealEdit.MealName;
+                entity.MealDescription = mealEdit.MealDescription;
                 
 
                 return ctx.SaveChanges() == 1;

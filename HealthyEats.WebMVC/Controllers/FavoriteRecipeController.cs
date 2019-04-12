@@ -99,18 +99,31 @@ namespace HealthyEats.WebMVC.Controllers
 
         // POST: FavoriteRecipe/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FavoriteRecipeEdit collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, FavoriteRecipeEdit favoriteRecipeEdit)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid)
 
+                return View(favoriteRecipeEdit);
+
+            if (favoriteRecipeEdit.FavoriteRecipeID != id)
+            {
+                ModelState.AddModelError("", "Sorry Mate, ID does not match with what you want to edit.");
+                return View(favoriteRecipeEdit);
+            }
+
+            var service = FavoriteRecipeService();
+
+            if (service.UpdateFavoriteRecipe(favoriteRecipeEdit))
+            {
+                TempData["SaveResult"] = "Cool people Update their Favorites! Go you!";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ModelState.AddModelError("", "Oh Man, Looks like your awesome Favorite was not updated! Don't give up!");
+
+            return View(favoriteRecipeEdit);
+
         }
 
         // GET: FavoriteRecipe/Delete/5
