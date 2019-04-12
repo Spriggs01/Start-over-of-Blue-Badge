@@ -1,4 +1,5 @@
 ﻿using HealthyEats.Data;
+using HealthyEats.WebMVC.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,8 +20,7 @@ namespace HealtyEats.Models
         [Display(Name = "Meal Description")]
         public string MealDescription { get; set; }
 
-        [Display(Name = "Recipe Title")]
-        public int RecipeID { get; set; }
+        
 
         public override string ToString() => MealName;
     }

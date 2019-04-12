@@ -20,7 +20,7 @@ namespace HealthyEats.Data
         public int RecipeID { get; set; }
 
         
-      public int MealID { get; set; }
+        public int MealID { get; set; }
 
         [Required]
         public string RecipeTitle { get; set; }

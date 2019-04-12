@@ -65,6 +65,33 @@ namespace HealthyEats.Services
             }
         }
 
+        public IEnumerable<RecipeListItem> GetRecipeByUserID(Guid recipeID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Where(e => e.UserID == _userId)
+                    .Select(e => new RecipeListItem
+                    {
+                       RecipeID = e.RecipeID,
+                       RecipeTitle = e.RecipeTitle,
+                       Link = e.Link,
+                       Calories = e.Calories,
+                       Dietary = e.Dietary,
+                       MealName = e.Meal.MealName,
+                       MealDescription = e.Meal.MealDescription,
+                       MealID = e.MealID
+                       
+
+                       
+
+                    });
+                return query.ToArray();
+            }
+        }
+
         public RecipeDetail GetRecipeByID(int recipeID)
         {
             using (var ctx = new ApplicationDbContext())
@@ -76,8 +103,6 @@ namespace HealthyEats.Services
                 return
                     new RecipeDetail
                     {
-                        RecipeID = entity.RecipeID,
-                        //MealID = entity.MealID,
                         RecipeTitle = entity.RecipeTitle,
                         Link = entity.Link,
                         TypeName = entity.TypeName,
@@ -86,28 +111,6 @@ namespace HealthyEats.Services
 
 
                     };
-            }
-        }
-
-        public IEnumerable<RecipeListItem> GetRecipeByUserID(Guid userId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                    .Recipes
-                    .Where(e => e.UserID == userId)
-                    .Select(e => new RecipeListItem
-                    {
-                        RecipeID = e.RecipeID,
-                        RecipeTitle = e.RecipeTitle,
-                        Link = e.Link,
-                        Calories = e.Calories,
-                        TypeName = e.TypeName,
-                        Dietary = e.Dietary
-
-                    });
-                return query.ToArray();
             }
         }
 
@@ -144,8 +147,8 @@ namespace HealthyEats.Services
                 return ctx.SaveChanges() == 1;
             }
 
-        
-            
+
+
         }
 
     }

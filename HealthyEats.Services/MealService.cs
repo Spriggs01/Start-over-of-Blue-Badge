@@ -37,10 +37,46 @@ namespace HealthyEats.Services
             }
         }
 
+        public IEnumerable<MealListItem> GetMeal()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Meals
+                    .Where(e => e.UserID == _userId)
+                    .Select(
+                        e =>
+                        new MealListItem
+                        {
+                            MealID = e.MealID,
+                            MealName = e.MealName,
+                            MealDescription = e.MealDescription
+                        }
+                        );
+                return query.ToArray();
+            }
+        }
 
+        public IEnumerable<MealListItem> GetMealByUserID(Guid userId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Meals
+                    .Where(e => e.UserID == userId)
+                    .Select(e => new MealListItem
+                    {
+                        MealID = e.MealID,
+                        MealName = e.MealName,
+                        MealDescription = e.MealDescription
+
+                    });
+                return query.ToArray();
+            }
+        }
     
-
-    //remove recipe from method and model
     public MealDetail GetMealByID(int id)
     {
         using (var ctx = new ApplicationDbContext())
@@ -94,5 +130,5 @@ namespace HealthyEats.Services
         }
     }
 }
-    
+
 }

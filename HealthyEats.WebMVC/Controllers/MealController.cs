@@ -18,7 +18,7 @@ namespace HealthyEats.WebMVC.Controllers
         {
             var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new MealService(userID);
-            var model = service.GetMeals();
+            var model = service.GetMeal();
 
             return View(model);
         }
@@ -84,7 +84,6 @@ namespace HealthyEats.WebMVC.Controllers
                 new MealEdit
                 {
                     MealID = detail.MealID,
-                    RecipeID = detail.RecipeID,
                     MealName = detail.MealName,
                     MealDescription = detail.MealDescription
                 };
