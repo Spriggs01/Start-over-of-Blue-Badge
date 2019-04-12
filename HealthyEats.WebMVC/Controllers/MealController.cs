@@ -36,7 +36,7 @@ namespace HealthyEats.WebMVC.Controllers
             var recipeService = new RecipeService(recipeID);
             var recipeList = recipeService.GetRecipeByUserID(recipeID);
 
-            ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
+           ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
 
 
             return View();

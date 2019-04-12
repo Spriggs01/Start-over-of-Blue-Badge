@@ -17,10 +17,10 @@ namespace HealthyEats.WebMVC.Data
         [Key]
         public int FavoriteRecipeID { get; set; }
 
-       
+       [Display(Name = "Recipe Title")]
         public string RecipeTitle { get; set; }
 
-
+        [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
         public int RecipeID { get; set; }

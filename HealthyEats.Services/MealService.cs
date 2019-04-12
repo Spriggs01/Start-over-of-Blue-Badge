@@ -24,7 +24,8 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
-                    RecipeID = model.RecipeID,
+                    RecipeID = model.RecipeID
+                   
 
                 };
 
