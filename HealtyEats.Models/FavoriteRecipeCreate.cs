@@ -11,13 +11,15 @@ namespace HealtyEats.Models
     public class FavoriteRecipeCreate
     {
         
-        public int RecipeID { get; set; }
+       // public int RecipeID { get; set; }
 
         [Display(Name = "Name of Recipe")]
         public string RecipeTitle { get; set; }
 
         [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
+
+        public ICollection<Recipe> Recipes { get; set; }
 
         public override string ToString() => FavoriteList;
     }

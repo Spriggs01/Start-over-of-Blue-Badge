@@ -80,13 +80,6 @@ namespace HealthyEats.Services
                        Link = e.Link,
                        Calories = e.Calories,
                        Dietary = e.Dietary,
-                       MealName = e.Meal.MealName,
-                       MealDescription = e.Meal.MealDescription,
-                       MealID = e.MealID
-                       
-
-                       
-
                     });
                 return query.ToArray();
             }

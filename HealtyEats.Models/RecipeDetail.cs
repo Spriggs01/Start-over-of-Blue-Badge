@@ -10,7 +10,10 @@ namespace HealtyEats.Models
     public class RecipeDetail
     {
 
-        public int MealID { get; set; }
+        public int RecipeID { get; set; }
+
+
+        //  public int MealID { get; set; }
 
         [Display(Name = "Recipe Title")]
         public string RecipeTitle { get; set; }

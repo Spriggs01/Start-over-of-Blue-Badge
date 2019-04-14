@@ -10,7 +10,7 @@ namespace HealtyEats.Models
 {
     public class FavoriteRecipeDetail
     {
-        public int RecipeID { get; set; }
+       // public int RecipeID { get; set; }
 
         public int FavoriteRecipeID { get; set; }
 
@@ -20,6 +20,8 @@ namespace HealtyEats.Models
         [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
-        public override string ToString() => $"[{FavoriteRecipeID} {RecipeID}] {FavoriteList}";
+        public ICollection<Recipe> Recipes { get; set; }
+
+        public override string ToString() => $"[{FavoriteRecipeID}] {FavoriteList}";
     }
 }

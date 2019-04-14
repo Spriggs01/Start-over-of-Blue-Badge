@@ -21,9 +21,9 @@ namespace HealtyEats.WebMVC.Models
         [Display(Name = "Name of Recipe")]
         public string RecipeTitle { get; set; }
 
-        public int  RecipeID { get; set; }
+       // public int  RecipeID { get; set; }
 
-        public Recipe Recipe { get; set; }
+        public ICollection<Recipe> Recipes { get; set; }
 
         public override string ToString() => FavoriteList;
        

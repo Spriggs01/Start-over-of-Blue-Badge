@@ -10,7 +10,9 @@ namespace HealtyEats.Models
 { 
     public class RecipeCreate
     {
-       [Display(Name = "Recipe Title")]
+        public int RecipeID { get; set; }
+
+        [Display(Name = "Recipe Title")]
         public string RecipeTitle { get; set; }
 
         public string Link { get; set; }
@@ -25,9 +27,8 @@ namespace HealtyEats.Models
 
         public string Image { get; set; }
 
-        public int RecipeID { get; set; }
 
-        public int MealID { get; set; }
+       // public int MealID { get; set; }
 
 
         public override string ToString() => RecipeTitle;

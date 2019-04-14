@@ -26,10 +26,9 @@ namespace HealthyEats.Services
                 {
                     UserID = _userId,
                     FavoriteList = model.FavoriteList,
-                    RecipeID = model.RecipeID,
-                    RecipeTitle = model.RecipeTitle 
-                    
-                    
+                    Recipes = model.Recipes
+
+
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -53,9 +52,8 @@ namespace HealthyEats.Services
                         {
                             FavoriteRecipeID = e.FavoriteRecipeID,
                             FavoriteList = e.FavoriteList,
-                            RecipeID = e.RecipeID,
-                            Recipe =e.Recipe,
-                            RecipeTitle = e.RecipeTitle
+                            Recipes = e.Recipes,
+                            
                         }
                         );
                 return query.ToArray();
@@ -75,9 +73,8 @@ namespace HealthyEats.Services
                     {
                         FavoriteRecipeID = entity.FavoriteRecipeID,
                         FavoriteList = entity.FavoriteList,
-                        RecipeID = entity.RecipeID,
-                        RecipeTitle = entity.RecipeTitle
-                       
+                        Recipes = entity.Recipes
+
                     };
             }
         }
@@ -93,9 +90,10 @@ namespace HealthyEats.Services
 
                 entity.FavoriteRecipeID = model.FavoriteRecipeID;
                 entity.FavoriteList = model.FavoriteList;
-                
-                
-                
+                entity.Recipes = model.Recipes;
+
+
+
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -113,6 +111,26 @@ namespace HealthyEats.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<RecipeListItem> GetRecipeByUserID(Guid recipeID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Recipes
+                    .Where(e => e.UserID == _userId)
+                    .Select(e => new RecipeListItem
+                    {
+                        RecipeID = e.RecipeID,
+                        RecipeTitle = e.RecipeTitle,
+                        Link = e.Link,
+                        Calories = e.Calories,
+                        Dietary = e.Dietary,
+                    });
+                return query.ToArray();
+            }
+        }
     }
 }
+
 

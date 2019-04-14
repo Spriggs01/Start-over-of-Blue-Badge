@@ -15,7 +15,10 @@
             @Html.DisplayNameFor(model => model.FavoriteList)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Recipe.RecipeTitle)
+            @Html.DisplayNameFor(model => model.Recipes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeTitle)
         </th>
         <th></th>
     </tr>
@@ -26,12 +29,15 @@
             @Html.DisplayFor(modelItem => item.FavoriteList)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Recipe.RecipeTitle)
+            @Html.DisplayFor(modelItem => item.Recipes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FavoriteRecipeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FavoriteRecipeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FavoriteRecipeID })
+            @Html.DisplayFor(modelItem => item.RecipeTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.FavoriteRecipeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.FavoriteRecipeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.FavoriteRecipeID })
         </td>
     </tr>
 }

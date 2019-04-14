@@ -25,6 +25,7 @@ namespace HealthyEats.Services
                     UserID = _userId,
                     MealName = model.MealName,
                     MealDescription = model.MealDescription,
+                    Recipes = model.Recipes,
 
 
 
@@ -51,7 +52,9 @@ namespace HealthyEats.Services
                         {
                             MealID = e.MealID,
                             MealName = e.MealName,
-                            MealDescription = e.MealDescription
+                            MealDescription = e.MealDescription,
+                            Recipes = e.Recipes
+
                         }
                         );
                 return query.ToArray();
@@ -70,7 +73,8 @@ namespace HealthyEats.Services
                     {
                         MealID = e.MealID,
                         MealName = e.MealName,
-                        MealDescription = e.MealDescription
+                        MealDescription = e.MealDescription,
+                        Recipes = e.Recipes
 
                     });
                 return query.ToArray();
@@ -85,13 +89,13 @@ namespace HealthyEats.Services
                 ctx
                 .Meals
                 .Single(e => e.MealID == id && e.UserID == _userId);
-            return
-                new MealDetail
-                {
-                    MealID = entity.MealID,
-                    MealName = entity.MealName,
-                    MealDescription = entity.MealDescription
-
+                return
+                    new MealDetail
+                    {
+                        MealID = entity.MealID,
+                        MealName = entity.MealName,
+                        MealDescription = entity.MealDescription,
+                        Recipes = entity.Recipes
 
                 };
         }
@@ -109,6 +113,7 @@ namespace HealthyEats.Services
             //entity.MealID = mealEdit.MealID;
             entity.MealName = mealEdit.MealName;
             entity.MealDescription = mealEdit.MealDescription;
+                entity.Recipes = mealEdit.Recipes;
 
 
             return ctx.SaveChanges() == 1;

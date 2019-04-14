@@ -29,8 +29,8 @@ namespace HealthyEats.WebMVC.Data
         [Required]
         public Guid UserID { get; set; }
 
+        public ICollection<Recipe> Recipes { get; set; }
 
-        public virtual Recipe Recipe { get; set; }
 
     }
 }

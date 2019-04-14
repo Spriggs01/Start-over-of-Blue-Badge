@@ -42,7 +42,7 @@ namespace HealthyEats.WebMVC.Controllers
             var recipeService = new RecipeService(recipeID);
             var recipeList = recipeService.GetRecipeByUserID(recipeID);
 
-            ViewBag.RecipeID = new SelectList(recipeList, "RecipeID", "RecipeTitle");
+            ViewBag.RecipeID = new MultiSelectList(recipeList, "RecipeID", "RecipeTitle");
 
 
             return View();
@@ -91,7 +91,7 @@ namespace HealthyEats.WebMVC.Controllers
                 new FavoriteRecipeEdit
                 {
                     FavoriteRecipeID = detail.FavoriteRecipeID,
-                    RecipeID = detail.RecipeID,
+                    Recipes = detail.Recipes,
                     FavoriteList = detail.FavoriteList
                 };
             return View(model);
