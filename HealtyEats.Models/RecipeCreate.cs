@@ -19,16 +19,14 @@ namespace HealtyEats.Models
 
         public int Calories { get; set; }
 
-        [Display(Name ="Type of Meal (Ex:Breakfast/Lunch?)")]
-        public string TypeName { get; set; }
 
         public string Dietary { get; set; }
 
 
         public string Image { get; set; }
 
-
-       // public int MealID { get; set; }
+        [Display(Name = "Type of Meal (Ex: Breakfast/Lunch/Dinner?")]
+        public int MealID { get; set; }
 
 
         public override string ToString() => RecipeTitle;

@@ -57,13 +57,9 @@
     <Compile Include="FavoriteRecipe.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Meal.cs" />
-    <Compile Include="Migrations\201904141854190_InitialCreate.cs" />
-    <Compile Include="Migrations\201904141854190_InitialCreate.Designer.cs">
-      <DependentUpon>201904141854190_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904141937227_update.cs" />
-    <Compile Include="Migrations\201904141937227_update.Designer.cs">
-      <DependentUpon>201904141937227_update.cs</DependentUpon>
+    <Compile Include="Migrations\201904151549265_initialAfterDrop.cs" />
+    <Compile Include="Migrations\201904151549265_initialAfterDrop.Designer.cs">
+      <DependentUpon>201904151549265_initialAfterDrop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904141854190_InitialCreate.resx">
-      <DependentUpon>201904141854190_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904141937227_update.resx">
-      <DependentUpon>201904141937227_update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904151549265_initialAfterDrop.resx">
+      <DependentUpon>201904151549265_initialAfterDrop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

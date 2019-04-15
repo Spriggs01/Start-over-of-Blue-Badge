@@ -11,8 +11,7 @@ namespace HealtyEats.Models
 {
     public class MealCreate
     {
-        
-      
+
 
         [Display(Name = "Type of Meal (Ex: Breakfast")]
         public string MealName { get; set; }

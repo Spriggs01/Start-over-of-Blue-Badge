@@ -29,11 +29,13 @@ namespace HealthyEats.Data
 
         public int Calories { get; set; }
 
-        public string TypeName { get; set; }
+       // public string TypeName { get; set; }
 
         public string Dietary { get; set; }
 
-   
+        public virtual Meal Meal { get; set; }
+
+
         public override string ToString() => RecipeTitle;
        
     }

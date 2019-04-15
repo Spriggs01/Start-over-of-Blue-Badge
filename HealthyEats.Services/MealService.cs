@@ -53,6 +53,7 @@ namespace HealthyEats.Services
                             MealID = e.MealID,
                             MealName = e.MealName,
                             MealDescription = e.MealDescription,
+                           
                             Recipes = e.Recipes
 
                         }

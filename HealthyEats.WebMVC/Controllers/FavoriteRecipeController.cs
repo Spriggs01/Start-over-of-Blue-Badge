@@ -91,9 +91,16 @@ namespace HealthyEats.WebMVC.Controllers
                 new FavoriteRecipeEdit
                 {
                     FavoriteRecipeID = detail.FavoriteRecipeID,
-                    Recipes = detail.Recipes,
                     FavoriteList = detail.FavoriteList
                 };
+
+          //  var recipeID = Guid.Parse(User.Identity.GetUserId());
+            //var recipeService = new RecipeService(recipeID);
+            //var recipeList = recipeService.GetRecipeByUserID(recipeID);
+
+            //ViewBag.RecipeID = new MultiSelectList(recipeList, "RecipeID", "RecipeTitle");
+
+
             return View(model);
         }
 

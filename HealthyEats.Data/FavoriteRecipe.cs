@@ -23,13 +23,13 @@ namespace HealthyEats.WebMVC.Data
         [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
-        public int RecipeID { get; set; }
+        public int? RecipeID { get; set; }
 
 
         [Required]
         public Guid UserID { get; set; }
 
-        public ICollection<Recipe> Recipes { get; set; }
+        public virtual Recipe Recipe { get; set; }
 
 
     }

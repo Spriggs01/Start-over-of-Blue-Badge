@@ -7,13 +7,13 @@ namespace HealthyEats.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class update : IMigrationMetadata
+    public sealed partial class initialAfterDrop : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialAfterDrop));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904141937227_update"; }
+            get { return "201904151549265_initialAfterDrop"; }
         }
         
         string IMigrationMetadata.Source

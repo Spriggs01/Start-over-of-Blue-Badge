@@ -18,14 +18,15 @@ namespace HealthyEats.WebMVC.Data
         [Required]
         public Guid UserID { get; set; }
 
-
         [Key]
         public int MealID { get; set; }
 
         public string MealName { get; set; }
 
+        public string RecipeTitle { get; set; }
+
         public string MealDescription { get; set; }
 
-       public ICollection<Recipe> Recipes { get; set; }
+        public ICollection<Recipe> Recipes { get; set; }
     }
 }

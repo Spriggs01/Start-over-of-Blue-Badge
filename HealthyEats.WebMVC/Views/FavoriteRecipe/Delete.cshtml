@@ -11,22 +11,14 @@
     <h4>Favorite Recipe Detail</h4>
     <hr />
     <dl class="dl-horizontal">
-       
+        @Html.HiddenFor(model => model.FavoriteRecipeID)
 
         <dt>
-            @Html.DisplayNameFor(model => model.FavoriteRecipeID)
+            @Html.DisplayNameFor(model => model.RecipeID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FavoriteRecipeID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RecipeTitle)
+            @Html.DisplayFor(model => model.RecipeID)
         </dd>
 
         <dt>
@@ -39,7 +31,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

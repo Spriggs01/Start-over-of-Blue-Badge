@@ -25,7 +25,7 @@ namespace HealthyEats.Services
                     RecipeTitle = model.RecipeTitle,
                     Link = model.Link,
                     Calories = model.Calories,
-                    TypeName = model.TypeName,
+                    MealID = model.MealID,
                     Dietary = model.Dietary,
 
 
@@ -53,10 +53,11 @@ namespace HealthyEats.Services
                         {
                             RecipeID = e.RecipeID,
                             RecipeTitle = e.RecipeTitle,
+                            MealName = e.Meal.MealName,
                             Link = e.Link,
                             Calories = e.Calories,
-                            TypeName = e.TypeName,
                             Dietary = e.Dietary,
+                           
 
                         }
                         );
@@ -98,9 +99,9 @@ namespace HealthyEats.Services
                     {
                         RecipeTitle = entity.RecipeTitle,
                         Link = entity.Link,
-                        TypeName = entity.TypeName,
                         Calories = entity.Calories,
                         Dietary = entity.Dietary,
+                        
 
 
                     };
@@ -118,7 +119,7 @@ namespace HealthyEats.Services
 
                 entity.RecipeTitle = recipeEdit.RecipeTitle;
                 entity.Link = recipeEdit.Link;
-                entity.TypeName = recipeEdit.TypeName;
+                entity.RecipeTitle = recipeEdit.RecipeTitle;
                 entity.Dietary = recipeEdit.Dietary;
                 entity.Calories = recipeEdit.Calories;
 

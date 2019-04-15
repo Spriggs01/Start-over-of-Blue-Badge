@@ -3,7 +3,7 @@ namespace HealthyEats.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initialAfterDrop : DbMigration
     {
         public override void Up()
         {
@@ -14,11 +14,11 @@ namespace HealthyEats.Data.Migrations
                         FavoriteRecipeID = c.Int(nullable: false, identity: true),
                         RecipeTitle = c.String(),
                         FavoriteList = c.String(),
-                        RecipeID = c.Int(nullable: false),
+                        RecipeID = c.Int(),
                         UserID = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.FavoriteRecipeID)
-                .ForeignKey("dbo.Recipe", t => t.RecipeID, cascadeDelete: true)
+                .ForeignKey("dbo.Recipe", t => t.RecipeID)
                 .Index(t => t.RecipeID);
             
             CreateTable(
@@ -31,7 +31,6 @@ namespace HealthyEats.Data.Migrations
                         RecipeTitle = c.String(nullable: false),
                         Link = c.String(),
                         Calories = c.Int(nullable: false),
-                        TypeName = c.String(),
                         Dietary = c.String(),
                     })
                 .PrimaryKey(t => t.RecipeID)
@@ -44,8 +43,8 @@ namespace HealthyEats.Data.Migrations
                     {
                         MealID = c.Int(nullable: false, identity: true),
                         UserID = c.Guid(nullable: false),
-                        RecipeTitle = c.String(),
                         MealName = c.String(),
+                        RecipeTitle = c.String(),
                         MealDescription = c.String(),
                     })
                 .PrimaryKey(t => t.MealID);

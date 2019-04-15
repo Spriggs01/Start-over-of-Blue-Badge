@@ -12,7 +12,8 @@ namespace HealtyEats.Models
     {
         public int RecipeID { get; set; }
 
-       // public int MealID { get; set; }
+        [Display(Name = "Type of Meal (Ex: Breakfast/Lunch/Dinner?")]
+        public int MealID { get; set; }
 
         [Display(Name = "Recipe Title")]
         public string RecipeTitle { get; set; }

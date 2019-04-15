@@ -10,18 +10,18 @@ namespace HealtyEats.Models
 {
     public class FavoriteRecipeDetail
     {
-       // public int RecipeID { get; set; }
-
         public int FavoriteRecipeID { get; set; }
 
-        [Display(Name = "Name of Recipe")]
-        public string RecipeTitle { get; set; }
+        [Display(Name = "Recipe Title")]
+        public int RecipeID { get; set; }
 
-        [Display(Name = "Favorite List")]
+       [Display(Name = "Favorite List")]
         public string FavoriteList { get; set; }
 
-        public ICollection<Recipe> Recipes { get; set; }
+        [Display(Name = "Recipe Title")]
+        public string RecipeTitle { get; set; }
 
-        public override string ToString() => $"[{FavoriteRecipeID}] {FavoriteList}";
+
+        public override string ToString() =>  FavoriteList;
     }
 }

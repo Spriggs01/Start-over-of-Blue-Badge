@@ -35,18 +35,10 @@
         <dd>
             @Html.DisplayFor(model => model.MealDescription)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RecipeTitle)
-        </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
