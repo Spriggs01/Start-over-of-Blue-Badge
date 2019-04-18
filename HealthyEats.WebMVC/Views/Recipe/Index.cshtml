@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.RecipeTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Link)
+            <a href="@item.Link" target="_blank">Your tasty Recipe awaits you, my dear</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Calories)
