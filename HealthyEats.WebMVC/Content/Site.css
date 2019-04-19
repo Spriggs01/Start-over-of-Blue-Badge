@@ -1,12 +1,10 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
+﻿@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.google.com/specimen/Satisfy?selection.family=Satisfy')
 /* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
+body-content {
+    padding-left: 25px;
     padding-right: 15px;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -20,5 +18,41 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+  //  max-width: 280px;
 }
+
+body {
+    font-family: "Indie Flower", Indie Flower, cursive;
+    color: black;
+    background-image: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    opacity: 2.5;
+    z-index: 10;
+}
+.navbar-brand {
+    background-color: antiquewhite;
+    opacity:.75;
+    z-index: 4;
+
+
+}
+.jumbotron  {
+    color: black;
+    font-family: "Satisfy";
+    background-color: transparent;
+}
+
+h2 {
+    font-family:"Satisfy";
+    font-size: 40px;
+
+}
+
+h1 {
+    font-family: "Indie Flower", Indie Flower, cursive;
+    font-size: 112px;
+   padding: 40px 295px;
+   font-weight: 550;
+}
+
+
+
