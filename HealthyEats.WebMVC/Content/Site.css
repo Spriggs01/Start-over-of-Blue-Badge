@@ -51,18 +51,11 @@ a {
     color: blueviolet;
 }
 
-//.nav > li > a {
-  //  position: relative;
-    //display: block;
-    //padding: 5px 5px;
 
-    //padding-top: 15px;
-
-}
 .navbar {
     font-size: 22px;
     margin-right: 90px;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.3);
     width: 100vw;
 }
 
@@ -73,6 +66,34 @@ a {
     font-size: 100px;
     padding-top: 150px;
     padding-left: 175px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+
+}
+.cover {
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    
+
+}
+
+.create {
+    background: rgba(255, 255, 255, 0.5);
+    
+}
+
+.cover p {
+    font-size: 20px;
+}
+
+.cover1 {
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+}
+
+.cover1 p{
+    font-size: 20px;
+    width: 50%;
 
 }
 
