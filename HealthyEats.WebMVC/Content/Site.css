@@ -25,16 +25,10 @@ body {
     font-family: "Indie Flower", Indie Flower, cursive;
     color: black;
     background-image: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    opacity: 2.5;
-    z-index: 10;
+    
+   
 }
-.navbar-brand {
-    background-color: antiquewhite;
-    opacity:.75;
-    z-index: 4;
 
-
-}
 .jumbotron  {
     color: black;
     font-family: "Satisfy";
@@ -52,6 +46,34 @@ h1 {
     font-size: 112px;
    padding: 40px 295px;
    font-weight: 550;
+}
+a {
+    color: blueviolet;
+}
+
+//.nav > li > a {
+  //  position: relative;
+    //display: block;
+    //padding: 5px 5px;
+
+    //padding-top: 15px;
+
+}
+.navbar {
+    font-size: 22px;
+    margin-right: 90px;
+    background: rgba(255, 255, 255, 0.75);
+    width: 100vw;
+}
+
+#loginLink {
+    padding-left: 30px;
+}
+.jumbotron h1{
+    font-size: 100px;
+    padding-top: 150px;
+    padding-left: 175px;
+
 }
 
 
