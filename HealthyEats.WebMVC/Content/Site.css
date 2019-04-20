@@ -160,4 +160,27 @@ h1 {
     color: antiquewhite;
 }
 
+#Login {
+    font-size: 20px;
+}
+.title h2 {
+    color: black;
+}
+.table th {
+    font-size: 25px;
+}
+.table td {
+    font-size: 18px;
+}
+.mealIndex {
+    background: url('/Content/Assets/Black-white-chalkboard.jpg');
+}
+
+.mealIndex p {
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+
+
 
