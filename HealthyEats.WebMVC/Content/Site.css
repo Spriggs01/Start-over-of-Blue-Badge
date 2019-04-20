@@ -25,7 +25,7 @@ body {
     font-family: "Indie Flower", Indie Flower, cursive;
     color: black;
     background-image: url('https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-    
+   
    
 }
 
@@ -49,13 +49,16 @@ h1 {
 }
 a {
     color: blueviolet;
+    font-size: 25px;
+    margin-left: 50px;
+    margin-top: -10px;
 }
 
 
 .navbar {
     font-size: 22px;
     margin-right: 90px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(245,245, 245, 1.5);
     width: 100vw;
 }
 
@@ -69,21 +72,76 @@ a {
     background: rgba(255, 255, 255, 0.2);
     width: 100%;
 
+
 }
 .cover {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
     width: 100%;
+    
     
 
 }
 
 .create {
     background: rgba(255, 255, 255, 0.5);
+    margin-top: 250px;
+    margin-left: 275px;
+
     
 }
 
-.cover p {
+ .form-control {
+    font-size: 14px;
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 1.43;
+    color: #555;
+    background-color: antiquewhite;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.mealName {
     font-size: 20px;
+    font-weight: 150;
+}
+
+.mealDescription {
+    font-size: 20px;
+    font-weight: 150;
+}
+.createButton {
+    color: #333;
+    background-color: ghostwhite;
+    border-color: #ccc;
+    font-size: 20px;
+    padding: 6px 12px;
+    font-weight: 100;
+    line-height: 1.423;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle; 
+    touch-action: manipulation;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.btn {
+   margin-bottom: 30px;
+   margin-left:140px;
+}
+
+
+
+
+.cover p {
+    font-size: 25px;
+
 }
 
 .cover1 {
@@ -96,6 +154,8 @@ a {
     width: 50%;
 
 }
+
+
 
 
 
