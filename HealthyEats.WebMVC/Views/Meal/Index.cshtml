@@ -5,42 +5,43 @@
 }
 
 
+<div class="form-horizontal MealIndexHeader">
+    <p>
+        <h2>Index</h2>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
 
-<p>
-    <h2>Index</h2>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MealName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealDescription)
+        </th>
+        <th></th>
+    </tr>
 
-    <table class="table">
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MealName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MealDescription)
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MealDescription)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MealID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MealID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MealID })
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MealName)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.MealDescription)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MealID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.MealID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MealID })
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>
 <br />
 <br />
 
@@ -50,10 +51,51 @@
         <br />
         <p>
             Here are a few tips on creating the "perfect" meal:
+            <ol>
+                <li>
+                    Make half of your plate veggies and fruits.
+                </li>
+                <li>
+                    Include whole grains.
+                </li>
+                <li>
+                    Add lean-protein.
+                </li>
+
+            </ol>
+
+        </p>
+        <br />
+        <br />
 
 
+        <h2>My GO TO Meals!</h2>
+        <br />
+        <br />
+        <h3>Taco Bowls</h3>
+
+        <p>
+
+            I LOVE Tacos! I think Tacos are the best dish EVER! AND they
+            definitely still taste wonderful 4 days later, so one of my FAVORITES
+            for meal prepping. Here is the link: <a href="https://sweetpeasandsaffron.com/turkey-taco-lunch-bowls-meal-prep/" target="_blank">Taco Bowls</a>.
+
+        </p>
+        <h3>Steak salad</h3>
+        <p>
+            YES you can have steak! Steak is a good source of Vitamin B12, Iron, Vitamin D and <strong>PROTEIN</strong>.
+            <strong>PROTEIN! PROTEIN! PROTEIN!</strong>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VUYP616SCqM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="protein"></iframe>
+        </p>
+        <br />
+
+        <p>
+        I think that video is HILARIOUS!
+        But, to be serious, Steak is good for you and FREAKING DELICIOUS at lunch time.
+        Here is the recipe I enjoy for Meal Prepping:
+        <a href="https://damndelicious.net/2017/02/01/steak-cobb-salad-meal-prep/" target="_blank">Steak Cobb Salad Meal Prep</a>.
         </p>
     </div>
 </div>
-  
+
 

@@ -174,12 +174,39 @@ h1 {
 }
 .mealIndex {
     background: url('/Content/Assets/Black-white-chalkboard.jpg');
+    margin-top: 20px:
 }
 
 .mealIndex p {
     font-size: 20px;
     color: antiquewhite;
 }
+.mealIndex ol{
+    font-size: 25px;
+    color: indianred;
+}
+
+.MealIndexHeader h2{
+    color: black;
+
+
+}
+.mealIndex h3 {
+    color:indianred ;
+    font-size: 25px;
+}
+.mealIndex a{
+    font-size: 20px;
+    color: hotpink;
+}
+#protein {
+    margin-top: 20px;
+    margin-left: 240px;
+}
+.table td {
+    font-size: 25px;
+}
+
 
 
 
