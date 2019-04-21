@@ -191,6 +191,7 @@ h1 {
 
 
 }
+
 .mealIndex h3 {
     color:indianred ;
     font-size: 25px;
@@ -205,6 +206,36 @@ h1 {
 }
 .table td {
     font-size: 25px;
+}
+
+.mealHeader h4 {
+    font-size: 30px;
+}
+.mealEditHeader h2 {
+    color: black;
+    margin-top: 200px;
+}
+
+.mealNameEdit {
+    font-size: 20px;
+}
+.mealDescriptionEdit{
+    font-size: 20px;
+}
+
+.editMeal {
+    background: url('/Content/Assets/Black-white-chalkboard.jpg');
+
+}
+
+.mealEdit p {
+    margin: 20px;
+    font-size: 40px;
+    color:antiquewhite;
+}
+.mealEditSubmit {
+    font-size:25px;
+
 }
 
 

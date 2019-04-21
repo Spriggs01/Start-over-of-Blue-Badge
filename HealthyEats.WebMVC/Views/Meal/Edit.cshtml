@@ -4,46 +4,51 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Meal Edit</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.MealID)
+
+    <div class="form-horizontal mealEditHeader">
+        <h2>Edit the details of your meal</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MealID)
 
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.MealName, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.MealName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MealName, "", new { @class = "text-danger" })
+        <div class="form-group mealNameEdit">
+            @Html.LabelFor(model => model.MealName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MealName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MealName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mealDescriptionEdit">
+            @Html.LabelFor(model => model.MealDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MealDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MealDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 ">
+                <input type="submit" value="Save" class="btn btn-default mealEditSubmit" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.MealDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.MealDescription, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MealDescription, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
+</div>
+<div class="row editMeal">
+    <div class="container col-md-12 mealEdit">
+        <p>
+            I just want to say, that unforunately I set up my site kind of weird. So, since you have clicked the edit button, you will need
+            to actually edit, because then it will not let you "Save". Very sorry for the inconvenience! I am working on fixing this issue!
+        </p>
+    </div>
 </div>
 
 @section Scripts {
