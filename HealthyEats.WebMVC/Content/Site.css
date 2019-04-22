@@ -103,7 +103,10 @@ h1 {
     margin-top: 250px;
     margin-left: 275px;
 }
-
+.create h2 {
+    color: black;
+    font-size: 40px;
+}
 .form-control {
     font-size: 14px;
     display: block;
@@ -170,7 +173,7 @@ h1 {
     font-size: 25px;
 }
 .table td {
-    font-size: 18px;
+    font-size: 20px;
 }
 .mealIndex {
     background: url('/Content/Assets/Black-white-chalkboard.jpg');
@@ -191,6 +194,10 @@ h1 {
     font-size: 100px;
     margin-top: 150px;
 
+}
+.MealIndexHeader {
+    font-size: 25px;
+   
 }
 
 .mealIndex h3 {
@@ -284,10 +291,14 @@ h1 {
 
 }
 .title h1{
-    margin-top: 150px;
+    margin-top: 100px;
     color: black;
-    font-size: 100px;
+    font-size: 80px;
     margin-left: 200px;
+    width: 100%;
+}
+.title p{
+    font-size: 30px;
 }
 .RecipeIndex {
     background: url('/Content/Assets/Black-white-chalkboard.jpg');
@@ -305,9 +316,94 @@ h1 {
     color: hotpink;
     font-size: 25px;
 }
+.RecipeEdit h2{
+    font-size: 30px;
+    color: black;
+}
+.RecipeID {
+    font-size: 20px;
+
+}
+.RecipeTitle {
+    font-size: 20px;
+
+}
+.Link {
+    font-size: 20px;
+
+}
+.Calories {
+    font-size: 20px;
+}
+.TypeName {
+    font-size: 20px;
+}
+.Dietary {
+    font-size: 20px;
+}
+.RecipeEdit {
+   background: rgba(255, 255, 255, .3);
+}
 
 
+.EditRecipe {
+    background: url('/Content/Assets/Black-white-chalkboard.jpg');
+    font-size: 25px;
+    color: antiquewhite;
 
 
+}
+.EditRecipe p{
+    margin-top:15px;
+}
+#parody {
+    margin-left: 250px;
+}
+
+#RecipeDetails h1 {
+    font-size: 100px;
+    margin-top: 150px;
+
+}
+
+#RecipeDetails dt{
+    font-size: 25px;
+}
+ #RecipeDetails dd {
+     font-size: 25px;
+ }
+ #RecipeDetails {
+     background: rgba(255, 255, 255, .3);
+ }
+ .FavoriteListIndex h1{
+     color:black;
+     font-size: 100px;
+     margin-top: 150px;
+     margin-left: 230px;
+ }
+ .FavoriteListIndex p {
+     font-size: 30px;
+ }
+ .favoriteRecipeEdit h1 {
+     color: black;
+     font-size: 50px;
+     margin-top: 150px;
+ }
+ .FavoriteList {
+     font-size: 25px;
+ }
+ .FavoriteDetailsHeader h2 {
+     font-size: 50px;
+     color: black;
+     margin-top: 200px;
+     margin-left: 100px;
+ }
+ 
+ .FavoriteHeader {
+     font-size: 25px;
+     background: rgba(255, 255, 255, .3);
+     color: black;
+     margin-top: 40px;
+ }
 
 

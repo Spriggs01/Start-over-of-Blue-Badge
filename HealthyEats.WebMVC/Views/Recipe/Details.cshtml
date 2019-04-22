@@ -5,10 +5,10 @@
 }
 
 
-<h2>Details</h2>
 
-<div>
-    <h4>Recipe Detail</h4>
+
+<div id="RecipeDetails">
+    <h1>Details of your Recipe</h1>
     <hr />
     <dl class="dl-horizontal">
 
@@ -54,7 +54,9 @@
 
     </dl>
 </div>
+<div id="BackToList">
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+    </div>

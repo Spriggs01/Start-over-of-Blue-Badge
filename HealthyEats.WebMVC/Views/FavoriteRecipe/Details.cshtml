@@ -3,13 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<div class="FavoriteDetailsHeader">
+    <h2>Details of your Favorite List</h2>
+</div>
 
 <div>
-    <h4>Favorite Recipe Detail</h4>
+   
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal FavoriteHeader">
         @Html.HiddenFor(model => model.FavoriteRecipeID)
 
         <dt>
@@ -30,7 +31,9 @@
 
     </dl>
 </div>
+<div id="BackToList"> 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.FavoriteRecipeID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+   </div>
