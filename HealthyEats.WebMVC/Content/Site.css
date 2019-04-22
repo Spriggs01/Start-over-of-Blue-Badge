@@ -186,9 +186,10 @@ h1 {
     color: indianred;
 }
 
-.MealIndexHeader h2{
+.MealIndexHeader h1{
     color: black;
-
+    font-size: 100px;
+    margin-top: 150px;
 
 }
 
@@ -204,29 +205,36 @@ h1 {
     margin-top: 20px;
     margin-left: 240px;
 }
-.table td {
+.table {
     font-size: 25px;
+    background: rgba(255, 255, 255, .3);
+}
+.table td {
+    font-size: 30px;
+    font-style: oblique;
 }
 
 .mealHeader h4 {
     font-size: 30px;
 }
-.mealEditHeader h2 {
+.mealEditHeader h1 {
     color: black;
-    margin-top: 200px;
+    margin-top: 125px;
+    font-size: 75px;
 }
 
 .mealNameEdit {
-    font-size: 20px;
+    font-size: 25px;
 }
 .mealDescriptionEdit{
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .editMeal {
     background: url('/Content/Assets/Black-white-chalkboard.jpg');
 
 }
+
 
 .mealEdit p {
     margin: 20px;
@@ -237,6 +245,67 @@ h1 {
     font-size:25px;
 
 }
+#BackToList {
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+   background: rgba(255, 255, 255, .3);
+}
+
+
+.Header {
+    font-size: 20px;
+    margin-left: 240px;
+    margin-top: 75px;
+    color:black;
+
+}
+.DetailsHeader h2 {
+    font-size: 30px;
+    color: black;
+    margin-top: 200px;
+    margin-left: 325px;
+}
+.RecipeTable {
+    margin-top:50px;
+    background: rgba(255, 255, 255, .4)
+    
+    
+}
+
+.RecipeTable th {
+    color: Black;
+
+
+}
+
+.RecipeTable a{
+    color: indianred;
+
+}
+.title h1{
+    margin-top: 150px;
+    color: black;
+    font-size: 100px;
+    margin-left: 200px;
+}
+.RecipeIndex {
+    background: url('/Content/Assets/Black-white-chalkboard.jpg');
+
+}
+.RecipeIndex p{
+    font-size: 20px;
+    color:antiquewhite;
+}
+.RecipeIndex ul{
+    color: antiquewhite;
+    font-size:20px;
+}
+.RecipeIndex a {
+    color: hotpink;
+    font-size: 25px;
+}
+
 
 
 

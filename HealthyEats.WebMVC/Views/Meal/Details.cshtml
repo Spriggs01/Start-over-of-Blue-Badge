@@ -4,27 +4,20 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+
+<div class="DetailsHeader">
+    <h2>Details of your meal, my dear</h2>
+</div>
+
 
 <div>
-    <h4>Meal Detail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MealID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MealID)
-        </dd>
-
-
+    <dl class="dl-horizontal Header">
         <dt>
             @Html.DisplayNameFor(model => model.MealName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.MealName)
+            <hr />
         </dd>
 
         <dt>
@@ -33,10 +26,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.MealDescription)
+            <hr />
         </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MealID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div id="BackToList">
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MealID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
