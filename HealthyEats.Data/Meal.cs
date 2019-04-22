@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 
 namespace HealthyEats.WebMVC.Data
 {
-   
+    public enum TypeOfMeal
+    {
+        Breakfast, Lunch, Dinner, Snack, Desert
+    }
+
 
     public class Meal
     {
-        
+
 
         [Required]
         public Guid UserID { get; set; }
@@ -21,7 +25,7 @@ namespace HealthyEats.WebMVC.Data
         [Key]
         public int MealID { get; set; }
 
-        public string MealName { get; set; }
+        public TypeOfMeal MealName { get; set; }
 
         public string RecipeTitle { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-@import url('https://fonts.google.com/specimen/Satisfy?selection.family=Satisfy')
+@import url('https://fonts.google.com/specimen/Satisfy?selection.family=Satisfy');
 /* Set padding to keep content from hitting the edges */
 
 body-content {
@@ -18,7 +18,7 @@ body-content {
 input,
 select,
 textarea {
-    // max-width: 280px;
+    max-width: 280px;
 }
 
 body {
@@ -177,7 +177,7 @@ h1 {
 }
 .mealIndex {
     background: url('/Content/Assets/Black-white-chalkboard.jpg');
-    margin-top: 20px:
+    margin-top: 20px;
 }
 
 .mealIndex p {
@@ -272,6 +272,12 @@ h1 {
     color: black;
     margin-top: 200px;
     margin-left: 325px;
+}
+.RecipeCreate h2{
+    font-size:50px;
+    margin-top: 150px;
+    color: black;
+    margin-left: 100px;
 }
 .RecipeTable {
     margin-top:50px;
@@ -404,6 +410,19 @@ h1 {
      background: rgba(255, 255, 255, .3);
      color: black;
      margin-top: 40px;
+ }
+ .AboutMe {
+     margin-top: 40px;
+     background: url('/Content/Assets/Black-white-chalkboard.jpg');
+     
+ }
+ .AboutMe p{
+     color:antiquewhite;
+     margin-top: 20px;
+     font-size: 20px;
+ }
+ #aboutMe h1 {
+     margin-top: 150px;
  }
 
 

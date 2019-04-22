@@ -29,7 +29,7 @@ namespace HealtyEats.Models
 
         public virtual Meal Meal { get; set; }
 
-        public string MealName { get; set; }
+        public TypeOfMeal MealName { get; set; }
 
         public string MealDescription { get; set; }
 

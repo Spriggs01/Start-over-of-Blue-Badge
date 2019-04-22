@@ -13,8 +13,7 @@ namespace HealtyEats.Models
     {
 
 
-        [Display(Name = "Type of Meal (Ex: Breakfast")]
-        public string MealName { get; set; }
+        public TypeOfMeal MealName { get; set; }
 
         [Display(Name = "Meal Description")]
         public string MealDescription { get; set; }
@@ -25,6 +24,6 @@ namespace HealtyEats.Models
         public ICollection<Recipe> Recipes { get; set; }
 
 
-        public override string ToString() => MealName;
+        public override string ToString() => RecipeTitle;
     }
 }
