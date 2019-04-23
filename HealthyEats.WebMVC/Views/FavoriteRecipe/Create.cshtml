@@ -3,19 +3,20 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Create</h2>
+<div class="FRCreate">
+<h2>Create your Favorite Recipe List</h2>
+    </div>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Favorite Recipe Create</h4>
+    <div class="form-horizontal CreateBody">
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group FavoriteListCreate">
             @Html.LabelFor(model => model.FavoriteList, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FavoriteList, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,28 +24,103 @@
             </div>
         </div>
 
-       
 
-        <div class="form-group">
+
+        <div class="form-group RecipeIDCreate ">
             @Html.LabelFor(model => Model.RecipeID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.ListBox("RecipeID", null, htmlAttributes: new { @class = "form-control" } )
+            <div class="col-md-10 ">
+                @Html.ListBox("RecipeID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RecipeID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default createButton" />
             </div>
         </div>
+    </div>
+    <div class="container col-md-12 FavoriteCreate">
+        <h2>My Favorite Recipes</h2>
+        <br />
+        <br />
+        <h3>Breakfast</h3>
+        <p>
+            My kids LOVE Breakfast. I always try to make them something that will keep them full and
+            something healthy. We usually lean towards waffles in my house. I have two favorite waffle recipes.
+            <br />
+            <br />
+         </p>
+        
+
+            <ul>
+                <li><a href="https://www.bonappetit.com/recipe/ham-and-cheese-waffles" target="_blank" >Ham and Cheese Waffles</a></li>
+                <li><a href="http://moderndaybrownmom.com/2018/05/27/oat-and-almond-flour-waffles/" target="_blank">Almond and Oat Flour Waffles with Blueberries</a></li>
+            </ul>
+        
+        <p>
+            For the Almond and Oat Flour Waffle Recipe, I always just add my own blueberries, usually about 1 cup!
+        </p>
+        <br />
+        <br />
+        <h3>Breakfast Pumpkin parfait for MOM!</h3>
+        <br />
+        <p>
+            I Love to eat healthy, but I also want my food to taste good. In the fall, I am definitely the "Pumpkin Spice Girl". Here is a
+            recipe that is sure to satisfy your pumpkin craving AND is <strong>GREAT</strong> for after you workout.
+            Get the recipe here: <a href="https://www.yahoo.com/lifestyle/pumpkin-parfait-the-perfect-post-workout-breakfast-100765354828.html?soc_src=mags" target="_blank">Post Workout Pumpkin Parfait Breakfast</a>
+
+        </p>
+        <br />
+        <h3>Dinner!</h3>
+        <p>
+            In my house, I always try to eat fish at least 2X PER WEEK! And if you have an Aldi near you, you can purchase extremely delicious
+            and affordable fish in the frozen section.
+            <br />
+            According to Healhtline:
+            <ul>
+                <li>Fish may lower your risk of heart attacks and stroke.</li>
+                <li>Fish contains nutrients that are crucial during development.</li>
+                <li>Fish may increase grey matter in the brain.</li>
+                <li>Fish may help prevent and treat Depression and make you a happier person.</li>
+            </ul>
+        </p>
+        <p>
+            The List above is just 4 of the 11 benefits stated on Healhlines Website. If you would like to read the full article,
+            please go here: <a href="https://www.healthline.com/nutrition/11-health-benefits-of-fish" target="_blank">11 Evidence-Based Health Benefits of Eating Fish</a>
+        </p>
+        <br />
+        <p>
+            Here is a delicious and mouth watering "Lemon Pepper Salmon" posted by The Recipe Critic:
+            <a href="https://therecipecritic.com/pan-seared-lemon-pepper-salmon/" target="_blank">Pan Seared Lemon Pepper Salmon</a>
+
+        </p>
+        <br />
+        <h3>Desert!</h3>
+        <p>
+            Last, BUT NOT LEAST, is DESERT! Because life is too short to not enjoy some Tiramisu or chocolate cake every now and again!
+            If you have ever hear of <a href="https://tasty.co/" target="_blank">TASTY</a>, you would know they give you
+            yummy recipes, that are extremely easy to make. This is where I found my ALL TIME FAVORITE "Tiramisu" Recipe. This recipe
+            is WORTH EVERY CALORIE! I love to make it every couple of months.
+        </p>
+        <br />
+        <p>
+            Here is my Favorite Tiramisu Recipe. Seriously, once you try this, you are never going back 
+            to the complicated Tiramisu dishes ever again!
+            <a href="https://www.tastemade.com/videos/milk-and-cookie-tiramisu" target="_blank">Milk and Cookie Tiramisu</a>
+        </p>
+        <br />
+        <br />
+        <p>
+            I Hope you try out my Favorites and I will figure out a way for you to share yours too!
+        </p>
+        
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
+    
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    
 }
+    </div>

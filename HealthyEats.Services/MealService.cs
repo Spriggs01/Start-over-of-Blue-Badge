@@ -124,6 +124,7 @@ namespace HealthyEats.Services
 
     public bool DeleteMeal(int mealId)
     {
+          
         using (var ctx = new ApplicationDbContext())
         {
             var entity =

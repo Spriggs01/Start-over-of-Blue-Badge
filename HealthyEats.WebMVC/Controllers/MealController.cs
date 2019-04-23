@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace HealthyEats.WebMVC.Controllers
 {
+    [Authorize]
     public class MealController : Controller
     {
         //you won't need the view bag in this controller.
@@ -135,9 +136,10 @@ namespace HealthyEats.WebMVC.Controllers
         {
 
             var service = CreateMealService();
-
-            service.DeleteMeal(id);
-
+            //try
+            //{
+                service.DeleteMeal(id);
+            //} catch
             TempData["SaveResult"] = "YAY! You successfully DESTROYED a meal!";
 
             return RedirectToAction("Index");

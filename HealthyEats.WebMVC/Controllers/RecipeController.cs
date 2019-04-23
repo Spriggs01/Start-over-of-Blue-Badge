@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace HealthyEats.WebMVC.Controllers
 {
+    [Authorize]
     public class RecipeController : Controller
     {
         // GET: Rceipe

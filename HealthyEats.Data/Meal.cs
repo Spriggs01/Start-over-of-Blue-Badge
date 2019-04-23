@@ -13,8 +13,6 @@ namespace HealthyEats.WebMVC.Data
     {
         Breakfast, Lunch, Dinner, Snack, Desert
     }
-
-
     public class Meal
     {
 
