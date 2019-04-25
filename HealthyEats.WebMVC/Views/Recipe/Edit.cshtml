@@ -12,66 +12,75 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal RecipeEdit">
-        
-        <br />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal RecipeEdit">
 
-        <div class="form-group RecipeID">
-            @Html.LabelFor(model => model.RecipeID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RecipeID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RecipeID, "", new { @class = "text-danger" })
-            </div>
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group NameOfMeal">
+        @Html.LabelFor(model => model.NameOfMeal, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NameOfMeal, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NameOfMeal, "", new { @class = "text-danger" })
         </div>
-
-        <div class="form-group RecipeTitle">
-            @Html.LabelFor(model => model.RecipeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RecipeTitle, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RecipeTitle, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group Link">
-            @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group Calories">
-            @Html.LabelFor(model => model.Calories, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Calories, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Calories, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group TypeName">
-            @Html.LabelFor(model => model.TypeName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TypeName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TypeName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group Dietary">
-            @Html.LabelFor(model => model.Dietary, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Dietary, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Dietary, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-
     </div>
+
+
+    <div class="form-group RecipeID">
+        @Html.LabelFor(model => model.RecipeID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RecipeID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RecipeID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group RecipeTitle">
+        @Html.LabelFor(model => model.RecipeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.RecipeTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RecipeTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group Link">
+        @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group Calories">
+        @Html.LabelFor(model => model.Calories, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Calories, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Calories, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group TypeName">
+        @Html.LabelFor(model => model.TypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TypeName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TypeName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group Dietary">
+        @Html.LabelFor(model => model.Dietary, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Dietary, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Dietary, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+</div>
 
     <div class="row editRecipe">
         <div class="container col-md-12 EditRecipe">

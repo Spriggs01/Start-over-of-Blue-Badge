@@ -1,4 +1,5 @@
-﻿using HealthyEats.WebMVC.Data;
+﻿using HealthyEats.Data;
+using HealthyEats.WebMVC.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,6 +11,8 @@ namespace HealtyEats.Models
 { 
     public class RecipeCreate
     {
+        [Display (Name ="Meal Type")]
+        public MealType NameOfMeal { get; set; }
         public int RecipeID { get; set; }
 
         [Display(Name = "Recipe Title")]
@@ -23,7 +26,7 @@ namespace HealtyEats.Models
         public string Dietary { get; set; }
 
 
-        public string Image { get; set; }
+      //  public string Image { get; set; }
 
         [Display(Name = "Type of Meal (Ex: Breakfast/Lunch/Dinner?")]
         public int MealID { get; set; }

@@ -33,11 +33,11 @@ namespace HealthyEats.WebMVC.Controllers
         // GET: Recipe/Create
         public ActionResult Create()
         {
-            var mealID = Guid.Parse(User.Identity.GetUserId());
-            var mealService = new MealService(mealID);
-            var mealList = mealService.GetMealByUserID(mealID);
+           // var mealID = Guid.Parse(User.Identity.GetUserId());
+            //var mealService = new MealService(mealID);
+            //var mealList = mealService.GetMealByUserID(mealID);
 
-            ViewBag.MealID = new SelectList(mealList, "MealID", "MealName");
+            //ViewBag.MealID = new SelectList(mealList, "MealID", "MealName");
 
             return View();
         
@@ -89,7 +89,8 @@ namespace HealthyEats.WebMVC.Controllers
                     Link = detail.Link,
                     TypeName = detail.TypeName,
                     Dietary = detail.Dietary,
-                    Calories = detail.Calories
+                    Calories = detail.Calories,
+                    NameOfMeal = detail.NameOfMeal
 
                 };
             return View();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthyEats.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace HealtyEats.Models
 {
     public class RecipeEdit
     {
+        [Display(Name = "Meal Type")]
+        public MealType NameOfMeal { get; set; }
         public int RecipeID { get; set; }
 
         [Display(Name = "Type of Meal (Ex: Breakfast/Lunch/Dinner?")]

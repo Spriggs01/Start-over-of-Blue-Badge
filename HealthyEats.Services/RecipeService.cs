@@ -25,8 +25,11 @@ namespace HealthyEats.Services
                     RecipeTitle = model.RecipeTitle,
                     Link = model.Link,
                     Calories = model.Calories,
-                    MealID = model.MealID,
                     Dietary = model.Dietary,
+                    NameOfMeal = model.NameOfMeal
+
+
+
 
 
 
@@ -57,7 +60,10 @@ namespace HealthyEats.Services
                             Link = e.Link,
                             Calories = e.Calories,
                             Dietary = e.Dietary,
-                           
+                            NameOfMeal = e.NameOfMeal
+
+
+
 
                         }
                         );
@@ -76,11 +82,12 @@ namespace HealthyEats.Services
                     .Where(e => e.UserID == _userId)
                     .Select(e => new RecipeListItem
                     {
-                       RecipeID = e.RecipeID,
-                       RecipeTitle = e.RecipeTitle,
-                       Link = e.Link,
-                       Calories = e.Calories,
-                       Dietary = e.Dietary,
+                        RecipeID = e.RecipeID,
+                        RecipeTitle = e.RecipeTitle,
+                        Link = e.Link,
+                        Calories = e.Calories,
+                        Dietary = e.Dietary,
+                        NameOfMeal = e.NameOfMeal
                     });
                 return query.ToArray();
             }
@@ -101,7 +108,8 @@ namespace HealthyEats.Services
                         Link = entity.Link,
                         Calories = entity.Calories,
                         Dietary = entity.Dietary,
-                        
+                        NameOfMeal = entity.NameOfMeal
+
 
 
                     };
@@ -122,6 +130,7 @@ namespace HealthyEats.Services
                 entity.RecipeTitle = recipeEdit.RecipeTitle;
                 entity.Dietary = recipeEdit.Dietary;
                 entity.Calories = recipeEdit.Calories;
+                entity.NameOfMeal = recipeEdit.NameOfMeal;
 
                 return ctx.SaveChanges() == 1;
             }

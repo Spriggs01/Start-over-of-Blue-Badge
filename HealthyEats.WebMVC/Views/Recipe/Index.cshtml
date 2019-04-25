@@ -1,126 +1,113 @@
 ﻿@model IEnumerable<HealtyEats.Models.RecipeListItem>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<div class="title">
-    <h1>Index</h1>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-  </div>
-
-<table class="table RecipeTable">
-    <tr>
-
-
-        <th>
-            @Html.DisplayNameFor(model => model.RecipeTitle)
-            <br />
-
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Link)
-            <br />
-
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Calories)
-            <br />
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MealName)
-            <br />
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dietary)
-            <br />
-
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.RecipeTitle)
-                <br />
-            </td>
-            <td>
-                <a href="@item.Link" target="_blank">Your tasty Recipe awaits you, my dear</a>
-                <br />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calories)
-                <br />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MealName)
-                <br />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dietary)
-                <br />
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RecipeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID })
-            </td>
-        </tr>
+    @{
+        ViewBag.Title = "Index";
     }
 
-</table>
-<div class="row recipe-index">
-    <div class="container col-md-12 RecipeIndex">
-        <h2>Tips for creating the perfect Recipe Index</h2>
-        <hr />
-        <p>
-            Here are a few tips on creating the perfect Recipe Index. The Recipe Index will be a little different
-            from the Meal Index, because you will be saving the SPECIFIC recipes (i.e. links and such).
-            The Meal index gives you the ability to just put stuff like PB&J, but what if you want to save a link from the website
-            you just cooked from, then use the RECIPE INDEX!
-            <br />
-            Also, the Recipe Index gives you the ability to be detailed. Read on for more information.
+    <div class="title">
+        <h1>Index</h1>
 
-        </p>
-        <br />
         <p>
-            So, for my Recipe Index, I love to save just about every recipe I make. Which is why my Recipe Index is full.
-            For a smaller list or if you are in a hurry, I have also created the ability to add Favorites! Onwards to "How to Write a Recipe Index out like a Pro":
-        </p>
-        <br />
-        <h2>Main Parts of the Recipe</h2>
-        <p>
-            <ul>
-                <li> The Title.</li>
-                <li> The Link. The URL to the Recipe you want to save.</li>
-                <li>
-                    Calories. You do not have to add this. This is completely optional, but if you are watching your diet or
-                    trying to lose weight, this can be very helpful!
-                </li>
-                <li> Dietary. For example, vegan, vegetarian or low carb etc.</li>
-                <li> Meal Name. This is just the type of Meal. Foe example, breakfast/lunch/dinner/snack.</li>
-            </ul>
-        </p>
-        <br />
-        <p>
-            If you would like to learn more on writing out a recipe index like a pro, please
-            visit <a href="https://www.thekitchn.com/how-to-write-a-recipe-58522" target="_blank">
-                "How to Write A Recipe Like A Professional"
-            </a>.
-        </p>
-        <br />
-        <h2>Enjoy</h2>
-        <p>
-            Once you have inputed all your recipes, you are "good to go"!
+            @Html.ActionLink("Create New", "Create")
         </p>
     </div>
-    
-</div>
+
+    <table class="table RecipeTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOfMeal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecipeTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calories)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Dietary)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipeTitle)
+
+                </td>
+                
+                <td>
+                    <a href="@item.Link" target="_blank">Your tasty Recipe awaits you, my dear</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calories)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MealName)
+                    <br />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dietary)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RecipeID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RecipeID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RecipeID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="row recipe-index">
+        <div class="container col-md-12 RecipeIndex">
+            <h2>Tips for creating the perfect Recipe Index</h2>
+            <hr />
+            <p>
+                Here are a few tips on creating the perfect Recipe Index. The Recipe Index will be a little different
+                from the Meal Index, because you will be saving the SPECIFIC recipes (i.e. links and such).
+                The Meal index gives you the ability to just put stuff like PB&J, but what if you want to save a link from the website
+                you just cooked from, then use the RECIPE INDEX!
+                <br />
+                Also, the Recipe Index gives you the ability to be detailed. Read on for more information.
+
+            </p>
+            <br />
+            <p>
+                So, for my Recipe Index, I love to save just about every recipe I make. Which is why my Recipe Index is full.
+                For a smaller list or if you are in a hurry, I have also created the ability to add Favorites! Onwards to "How to Write a Recipe Index out like a Pro":
+            </p>
+            <br />
+            <h2>Main Parts of the Recipe</h2>
+            <p>
+                <ul>
+                    <li> The Title.</li>
+                    <li> The Link. The URL to the Recipe you want to save.</li>
+                    <li>
+                        Calories. You do not have to add this. This is completely optional, but if you are watching your diet or
+                        trying to lose weight, this can be very helpful!
+                    </li>
+                    <li> Dietary. For example, vegan, vegetarian or low carb etc.</li>
+                    <li> Meal Name. This is just the type of Meal. Foe example, breakfast/lunch/dinner/snack.</li>
+                </ul>
+            </p>
+            <br />
+            <p>
+                If you would like to learn more on writing out a recipe index like a pro, please
+                visit <a href="https://www.thekitchn.com/how-to-write-a-recipe-58522" target="_blank">
+                    "How to Write A Recipe Like A Professional"
+                </a>.
+            </p>
+            <br />
+            <h2>Enjoy</h2>
+            <p>
+                Once you have inputed all your recipes, you are "good to go"!
+            </p>
+        </div>
+
+    </div>
 
