@@ -33,6 +33,7 @@ namespace HealthyEats.Data
 
        public string Dietary { get; set; }
 
+        
         public virtual Meal Meal { get; set; }
         public MealType NameOfMeal { get; set; }
 

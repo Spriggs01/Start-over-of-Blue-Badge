@@ -29,6 +29,6 @@ namespace HealthyEats.WebMVC.Data
 
         public string MealDescription { get; set; }
 
-        public ICollection<Recipe> Recipes { get; set; }
+        //public ICollection<Recipe> Recipes { get; set; }
     }
 }
