@@ -26,13 +26,9 @@ namespace HealthyEats.Services
                     Link = model.Link,
                     Calories = model.Calories,
                     Dietary = model.Dietary,
-                    NameOfMeal = model.NameOfMeal
-
-
-
-
-
-
+                    NameOfMeal = model.NameOfMeal,
+                    MealID = model.MealID
+                    
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -60,7 +56,8 @@ namespace HealthyEats.Services
                             Link = e.Link,
                             Calories = e.Calories,
                             Dietary = e.Dietary,
-                            NameOfMeal = e.NameOfMeal
+                            NameOfMeal = e.NameOfMeal,
+                            MealID = e.MealID
 
 
 
@@ -87,7 +84,8 @@ namespace HealthyEats.Services
                         Link = e.Link,
                         Calories = e.Calories,
                         Dietary = e.Dietary,
-                        NameOfMeal = e.NameOfMeal
+                        NameOfMeal = e.NameOfMeal,
+                        MealID = e.Meal.MealID
                     });
                 return query.ToArray();
             }
@@ -108,7 +106,9 @@ namespace HealthyEats.Services
                         Link = entity.Link,
                         Calories = entity.Calories,
                         Dietary = entity.Dietary,
-                        NameOfMeal = entity.NameOfMeal
+                        NameOfMeal = entity.NameOfMeal,
+                        MealID = entity.MealID
+                        
 
 
 
@@ -131,6 +131,8 @@ namespace HealthyEats.Services
                 entity.Dietary = recipeEdit.Dietary;
                 entity.Calories = recipeEdit.Calories;
                 entity.NameOfMeal = recipeEdit.NameOfMeal;
+                entity.MealID = recipeEdit.MealID;
+                
 
                 return ctx.SaveChanges() == 1;
             }

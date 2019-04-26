@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HealtyEats.Models
-{ 
+{
     public class RecipeCreate
     {
-        [Display (Name ="Meal Type")]
+        [Display(Name = "Meal Type")]
         public MealType NameOfMeal { get; set; }
         public int RecipeID { get; set; }
 
@@ -21,20 +21,12 @@ namespace HealtyEats.Models
         public string Link { get; set; }
 
         public int Calories { get; set; }
-
-
         public string Dietary { get; set; }
 
-
-      //  public string Image { get; set; }
-
-        [Display(Name = "Type of Meal (Ex: Breakfast/Lunch/Dinner?")]
         public int MealID { get; set; }
-
-
         public override string ToString() => RecipeTitle;
 
-        
+
 
     }
 }

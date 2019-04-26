@@ -53,7 +53,6 @@ namespace HealthyEats.WebMVC.Controllers
             var service = RecipeService();
 
             if (service.CreateRecipe(recipe))
-
             {
                 TempData["SaveResult"] = "MMMMM, that's a TASTY Recipe!NOM NOM NOM";
                 return RedirectToAction("Index");
@@ -61,12 +60,7 @@ namespace HealthyEats.WebMVC.Controllers
 
             ModelState.AddModelError("", "Lame! Not you, this app...Well?.. No Recipe was created. Don't Give up!");
 
-
             return View(recipe);
-
-            
-
-
         }
 
         public RecipeService RecipeService()
@@ -87,10 +81,10 @@ namespace HealthyEats.WebMVC.Controllers
                     
                     RecipeTitle = detail.RecipeTitle,
                     Link = detail.Link,
-                    TypeName = detail.TypeName,
                     Dietary = detail.Dietary,
                     Calories = detail.Calories,
-                    NameOfMeal = detail.NameOfMeal
+                    NameOfMeal = detail.NameOfMeal,
+                    MealID = detail.MealID
 
                 };
             return View();
